@@ -14,22 +14,22 @@
     </head>
 
     <body style="background-color: rgb(50, 50, 50);">
-    <!--背景音乐-->
-    <audio autoplay loop>
-        <source src="audio/music/【明日方舟】极少人知晓的一首BGM~3.mp3">
-    </audio>
-    
-    <!--导航-->
-    <div id="导航">
-        <div id="标题">
-            <img src="https://p.qlogo.cn/gh/494930147/494930147/140" style="height: 60px;width: 60px;border-radius: 50%;">
-            <div id="主标题">
-                <center>167号世界</center>
-                <div id="副标题">
-                    <center>The 167 World</center>
+        <!--背景音乐-->
+        <audio autoplay loop>
+            <source src="audio/music/【明日方舟】极少人知晓的一首BGM~3.mp3">
+        </audio>
+
+        <!--导航-->
+        <div id="导航">
+            <div id="标题">
+                <img src="https://p.qlogo.cn/gh/494930147/494930147/140" style="height: 60px;width: 60px;border-radius: 50%;">
+                <div id="主标题">
+                    <center>167号世界</center>
+                    <div id="副标题">
+                        <center>The 167 World</center>
+                    </div>
                 </div>
             </div>
-        </div>
             <ul class="右出" style="color: white;">
                 <li onclick="a(0)">首页</li>
                 <li onclick="a(1)">下载</li>
@@ -39,7 +39,7 @@
             </ul>
         </div>
 
-		<!--首页-->
+        <!--首页-->
         <div id="a1" style="background-color: rgb(233, 233, 233);">
             <!--内容-->
             <div id="内容">
@@ -98,7 +98,7 @@
             </div>
         </div>
 
-		<!--下载-->
+        <!--下载-->
         <div id="a2" style="display: none;background-color: rgb(233, 233, 233);">
             <div id="内容">
                 <!--提示-->
@@ -169,7 +169,7 @@
             </div>
         </div>
 
-		<!--服务器-->
+        <!--服务器-->
         <div id="a3" style="display: none;background-color: rgb(233, 233, 233);">
             <div id="内容">
                 <!--内容-->
@@ -187,26 +187,27 @@
                         <!--167号世界-->
                         <div style="background-color: rgb(255, 255, 255);">
                             <br>
-                            <p style="font-size: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;· Minecraft JAVA 1.16.5</p>
+                            <p style="font-size: 30px; margin-left: 5%">· Minecraft JAVA 1.16.5</p>
                             <br>
-                            <center>
-                                <div style="height: 250px; width: 90%;">
-                                    <div style="background-color: rgb(250, 250, 250); text-align: left;">
-                                        <a href="server/The 167 World!!!/index.html" style="color: black; text-decoration: none;" target="_blank">
-                                            <h1>167号世界！！！</h1>
-                                            <p>The 167 World!!!</p>
-                                            <br>
-                                        </a>
+                            <button class="button">
+                                <a href="server/The 167 World!!!/index.html" target="_blank" style="color:#ffffff; text-decoration: none; margin: 0;" onfocus="this.blur()">
+                                    <!--onfocus="this.blur()"是为了删除点击按钮后出现的虚线框-->
+                                    <div>
+                                        <div style="height: 5px;"></div>
+                                        <h1 style="margin-left:5%">167号世界!!!</h1>
+                                        <p style="font-size: large; margin-left: 5%">相关介绍以及玩家社区！点击查看！</p>
+                                        <div style="height: 5px;"></div>
                                     </div>
-                                </div>
-                            </center>
+                                </a>
+                            </button>
+                            <div style="height: 70px;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-		<!--线上地图-->
+        <!--线上地图-->
         <div id="a4" style="display: none;background-color: rgb(233, 233, 233);">
             <div id="内容">
                 <!--提示-->
@@ -222,27 +223,25 @@
                     <!--167号世界-->
                     <div style="background-color: rgb(255, 255, 255);">
                         <br>
-                        <p style="font-size: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;· Minecraft JAVA 1.16.5</p>
+                        <p style="font-size: 30px; margin-left: 5%">· Minecraft JAVA 1.16.5</p>
                         <br>
-                        <center>
-                            <div style="height: 250px; width: 90%;">
-                                <div style="text-align: left;">
-                                    <button style="background-color: aquamarine;height: 100px;width: 30%;text-align: center;">
-                                        <a href="map/The 167 World!!!/index.html" style="color: white; text-decoration: none;" target="_blank">
-                                            <h1>167号世界！！！</h1>
-                                            <p>167号世界！！！的实时卫星地图</p>
-                                            <br>
-                                        </a>
-                                    </button>
+                        <button class="button">
+                            <a href="map/The 167 World!!!/index.html" target="_blank" style="color:#ffffff; text-decoration: none; margin: 0;" onfocus="this.blur()">
+                                <div>
+                                    <div style="height: 5px;"></div>
+                                    <h1 style="margin-left:5%">167号世界!!!</h1>
+                                    <p style="font-size: large; margin-left: 5%">167号世界!!!的实时卫星地图！</p>
+                                    <div style="height: 5px;"></div>
                                 </div>
-                            </div>
-                        </center>
+                            </a>
+                        </button>
+                        <div style="height: 70px;"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-		<!--关于我们-->
+        <!--关于我们-->
         <div id="a5" style="display: none;background-color: rgb(233, 233, 233);">
             <div id="内容">
                 <!--提示-->
@@ -358,7 +357,7 @@
                 </center>
             </div>
         </div>
-        
+
         <!--尾页-->
         <div style="background-color:rgb(90, 90, 90);height: 800px;">
             <!--导航栏-->
@@ -392,13 +391,13 @@
 
         <!--版权&贡献-->
         <div style="background-color: rgb(50, 50, 50);height: 200px;">
-			<div style="top: 40%;position: relative;">
-				<div style="color: rgb(245, 245, 245);text-align: center;">Contributed by <a href="https://github.com/XJLanghai" style="color: rgb(0, 123, 255);text-decoration: none;" target="_blank"><b>XJLanghai</b></a>, <a href="https://github.com/Tinhone" style="color: rgb(0, 123, 255);text-decoration: none;" target="_blank"><b>Tinhone</b></a>.</div>
-				<br>
-				<div style="color: rgb(245, 245, 245);text-align: center;">Copyright &copy; 2021 <a href="https://xjlanghai.github.io" style="color: rgb(0, 123, 255);text-decoration: none;" target="_blank"><b>螂海</b></a>. All rights reserved.</div>
-			</div>
+            <div style="top: 40%;position: relative;">
+                <div style="color: rgb(245, 245, 245);text-align: center;">Contributed by <a href="https://github.com/XJLanghai" style="color: rgb(0, 123, 255);text-decoration: none;" target="_blank"><b>XJLanghai</b></a>, <a href="https://github.com/Tinhone" style="color: rgb(0, 123, 255);text-decoration: none;" target="_blank"><b>Tinhone</b></a>.</div>
+                <br>
+                <div style="color: rgb(245, 245, 245);text-align: center;">Copyright &copy; 2021 <a href="https://xjlanghai.github.io" style="color: rgb(0, 123, 255);text-decoration: none;" target="_blank"><b>螂海</b></a>. All rights reserved.</div>
+            </div>
             <br><br><br>
         </div>
-        
+
     </body>
 </html>
