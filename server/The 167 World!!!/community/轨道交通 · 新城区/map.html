@@ -1,65 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <link rel="shortcut icon" href="../../../../img/167图标.png">
     <meta charset="utf-8">
     <title>167号世界 - 服务器 - 167号世界！！！ - 【167号世界！！！】轨道交通 · 新城区</title>
     <style>
-      .stop {
-        -webkit-transition: 0.5s;
-      }
-      .stop:hover {
-        -webkit-transform: scale(1.2) translate(7px, 3px);;
-      }
+        .stopUp {
+            -webkit-transition: 0.3s;
+        }
 
-      body {
-        margin: 3px;
-        padding: 3px;
-      }
+        .stopUp:hover {
+            -webkit-transform: scale(1.2) translate(0px, -5px);
+        }
 
-      b {
-        color: white;
-        font-size: 24px;
-        text-shadow:-2px 0 black,0 2px black,2px 0 black,0 -2px black;
-      }
-      </style>
-  </head>
-  <body>
-    <img src="map.png" style="position: absolute;z-index: 0;">
+        .stopDown {
+            -webkit-transition: 0.3s;
+        }
 
-    <div class="stop" style="position: absolute;z-index: 1;left: 575px;top: 376px;">
-      <div style="width: 16px;height: 16px;background-color: white;border-radius: 20px;"></div>
-      <b>雪城西站</b>
+        .stopDown:hover {
+            -webkit-transform: scale(1.2) translate(0px, 5px);
+        }
+
+        body {
+            margin: 3px;
+            padding: 3px;
+        }
+
+        b {
+            color: #f5f5f5;
+            font-size: 27px;
+            text-shadow: 0px 0px 7px black;
+        }
+    </style>
+</head>
+<body>
+    <img src="mapV1.3B.png" style="position: absolute;z-index: 0;">
+
+    <div class="stopUp" style="position: absolute; z-index: 1; left: 527px; top: 335px; white-space: nowrap; ">
+        <b>雪城西站</b>
+        <div style="width: 13px; height: 13px; background-color: white; border-radius: 50%; box-shadow: 0px 0px 0px 2px black;margin:0 auto;"></div>
     </div>
 
-    <div class="stop" style="position: absolute;z-index: 1;left: 725px;top: 477px;">
-      <div style="width: 16px;height: 16px;background-color: white;border-radius: 20px;"></div>
-      <b>雪城东站</b>
-    </div>
-    
-    <div class="stop" style="position: absolute;z-index: 1;left: 900px;top: 522px;">
-      <div style="width: 16px;height: 16px;background-color: white;border-radius: 20px;"></div>
-      <b>新手村</b>
+    <div class="stopUp" style="position: absolute; z-index: 1; left: 680px; top: 437px; white-space: nowrap; ">
+        <b>雪城东站</b>
+        <div style="width: 13px; height: 13px; background-color: white; border-radius: 50%; box-shadow: 0px 0px 0px 2px black;margin:0 auto;"></div>
     </div>
 
-    <div class="stop" style="position: absolute;z-index: 1;left: 1168px;top: 363px;">
-      <div style="width: 16px;height: 16px;background-color: white;border-radius: 20px;"></div>
-      <b>林中雪站</b>
+    <div class="stopUp" style="position: absolute; z-index: 1; left: 852px; top: 484px; white-space: nowrap; ">
+        <b>新手村站</b>
+        <div style="width: 10px; height: 19px; background-color: white; border-radius: 3.7px; box-shadow: 0px 0px 0px 2px black;margin:0 auto;"></div>
     </div>
 
-    <div class="stop" style="position: absolute;z-index: 1;left: 1493px;top: 336px;">
-      <div style="width: 16px;height: 16px;background-color: white;border-radius: 20px;"></div>
-      <b>环湖度假村站</b>
+    <div class="stopDown" style="position: absolute; z-index: 1; left: 845px; top: 704px; white-space: nowrap; ">
+        <div style="width: 13px; height: 13px; background-color: white; border-radius: 50%; box-shadow: 0px 0px 0px 2px black;margin:0 auto;"></div>
+        <b>地下城站</b>
     </div>
 
-    <div class="stop" style="position: absolute;z-index: 1;left: 700px;top: 680px;">
-      <div style="width: 16px;height: 16px;background-color: white;border-radius: 20px;"></div>
-      <b>冰道站</b>
+    <div class="stopDown" style="position: absolute; z-index: 1; left: 663px; top: 680px; white-space: nowrap; ">
+        <div style="width: 10px; height: 19px; background-color: white; border-radius: 3.7px; box-shadow: 0px 0px 0px 2px black;margin:0 auto;"></div>
+        <b>冰道站</b>
     </div>
-    
-    <div class="stop" style="position: absolute;z-index: 1;left: 564px;top: 880px;">
-      <div style="width: 16px;height: 16px;background-color: white;border-radius: 20px;"></div>
-      <b>遗庄村站</b>
+
+    <div class="stopDown" style="position: absolute; z-index: 1; left: 516px; top: 882px; white-space: nowrap; ">
+        <div style="width: 13px; height: 13px; background-color: white; border-radius: 50%; box-shadow: 0px 0px 0px 2px black;margin:0 auto;"></div>
+        <b>遗庄村站</b>
     </div>
-  </body>
+
+    <div class="stopDown" style="position: absolute; z-index: 1; left: 1123px; top: 365px; white-space: nowrap; ">
+        <div style="width: 13px; height: 13px; background-color: white; border-radius: 50%; box-shadow: 0px 0px 0px 2px black;margin:0 auto;"></div>
+        <b>林中雪站</b>
+    </div>
+
+    <div class="stopDown" style="position: absolute; z-index: 1; left: 1413px; top: 333px; white-space: nowrap; ">
+        <div style="width: 13px; height: 13px; background-color: white; border-radius: 50%; box-shadow: 0px 0px 0px 2px black;margin:0 auto;"></div>
+        <b>环湖度假村站</b>
+    </div>
+
+</body>
 </html>
