@@ -6,7 +6,7 @@
 
 @keyframes 左出 {
     from {
-        opacity: 0.2;
+        opacity: 0.3;
     transform: translate3d(-100%, 0, 0);
     }
 
@@ -18,7 +18,7 @@
 
 @keyframes 右出 {
     from {
-        opacity: 0.2;
+        opacity: 0.3;
         transform: translate3d(100%, 0, 0);
     }
 
@@ -32,13 +32,13 @@
 
 .左出 {
 
-    animation-duration: 3.6s;
+    animation-duration: 3.8s;
     animation-fill-mode: both;
     animation-name: 左出;
 }
 
 .右出 {
-    animation-duration: 3.6s;
+    animation-duration: 3.8s;
     animation-fill-mode: both;
     animation-name: 右出;
 }
