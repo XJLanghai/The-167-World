@@ -54,7 +54,7 @@ function MyThree() {
     this.initLight = function (color) {
         //点光源
         this.light = new THREE.PointLight(0xF7DFC0, 1);
-        this.light.position.set(-100, 200, -100);
+        this.light.position.set(-200, 200, -100);
         this.light.castShadow = true;
         this.scene.add(this.light);
     }
