@@ -11,10 +11,11 @@
             alert("您的浏览器不支持webGL，首页的图片可能会出现模型渲染错误");
         }
     </script>
-    <script type="text/javascript" src="其他/three.js-master-87/build/three.js"></script>
-    <script type="text/javascript" src="其他/three.js-master-87/examples/js/loaders/OBJLoader.js"></script>
-    <script type="text/javascript" src="其他/three.js-master-87/examples/js/loaders/MTLLoader.js"></script>
-    <script type="text/javascript" src="其他/obj.js"></script>
+    <script src="其他/three.js-master-87/build/three.js"></script>
+    <script src="其他/three.js-master-87/examples/js/loaders/OBJLoader.js"></script>
+    <script src="其他/three.js-master-87/examples/js/loaders/MTLLoader.js"></script>
+    <script src="其他/three.js-master-87/examples/js/controls/OrbitControls.js"></script>
+    <script src="其他/obj.js"></script>
     <style>
         body, html {
             height: 900px;
@@ -57,10 +58,14 @@
             })
             //刷新页面
             myThree.renderer.render(myThree.scene, myThree.camera);
+            var controls = new THREE.OrbitControls(myThree.camera);
+            controls.enableZoom = false;
+            controls.enablePan= false;
+            controls.rotateSpeed = 0.03;
             requestAnimationFrame(animation);
         }
- 
-        
+
+
     </script>
 </head>
 <body onload="threeStart();">
