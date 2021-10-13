@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script>
+        if (WEBGL.isWebGLAvailable()) {
+            // Initiate function or other initializations here
+            animate();
+        } else {
+            alert("您的浏览器不支持webGL，首页的图片可能会出现模型渲染错误");
+        }
+    </script>
+    <script src="其他/three.js-master-87/build/three.js"></script>
+    <script src="其他/three.js-master-87/examples/js/loaders/OBJLoader.js"></script>
+    <script src="其他/three.js-master-87/examples/js/loaders/MTLLoader.js"></script>
+    <script src="其他/three.js-master-87/examples/js/controls/OrbitControls.js"></script>
+    <script src="其他/obj.js"></script>
+    <style>
+        body, html {
+            height: 900px;
+            margin: 0;
+        }
+ 
+        #three-frame {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        var myThree;
+ 
+        //自适应尺寸
+        function onResize() {
+            myThree.camera.aspect = window.innerWidth / window.innerHeight;
+            myThree.camera.updateProjectionMatrix();
+            myThree.renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+ 
+        //入口
+        function threeStart() {
+            myThree = new MyThree();
+            console.log(myThree)
+            myThree.initThree(document.getElementById('three-frame'))
+            myThree.initCamera(8, 900, 1200, 1000);
+            myThree.initLight(0xFFFFFF);
+            myThree.loadObj('其他/obj/', '1.obj', '1.mtl');
+            //基础线
+            myThree.initGrid(0, 0);
+            animation();
+            window.addEventListener('resize', onResize, false);
+        }
+ 
+        //动作
+        function animation() {
+            myThree.elements.forEach(x => {
+                x.model.rotateY(0.003);
+            })
+            //刷新页面
+            myThree.renderer.render(myThree.scene, myThree.camera);
+            var controls = new THREE.OrbitControls(myThree.camera);
+            controls.enableZoom = false;
+            controls.enablePan= false;
+            controls.rotateSpeed = 0.01;
+            requestAnimationFrame(animation);
+        }
+
+
+    </script>
+</head>
+<body onload="threeStart();">
+<div id="three-frame"></div>
+</body>
+</html>
