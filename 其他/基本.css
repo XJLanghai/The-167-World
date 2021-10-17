@@ -285,7 +285,7 @@ body {
     transform: translate3d(0, 0, 0)
 }
 
-.button {
+.button_server {
     border: none;
     box-shadow: 0px 0px 15px #93d8b6;
     text-align: left;
@@ -299,33 +299,57 @@ body {
     transition: 0.15s;
 }
 
-.button:hover {
+.button_server:hover {
     background-color: #63c696;
     transition:0.3s;
 }
 
-button:active{
-    transform:scale(0.93);
-    transition:0.15s;
+.button_server:active {
+    transform: scale(0.93);
+    transition: 0.15s;
+}
+
+.button_map {
+    border: none;
+    box-shadow: 0px 0px 15px #93d8b6;
+    text-align: left;
+    margin-left: 5%;
+    background-color: #93d8b6;
+    width: 500px;
+    padding: 15px;
+    padding-left: 15px;
+    padding-right: 5px;
+    border-radius: 10px;
+    transition: 0.15s;
+}
+
+.button_map:hover {
+    background-color: #63c696;
+    transition:0.3s;
+}
+
+.button_map:active {
+    transform: scale(0.93);
+    transition: 0.15s;
 }
 
 /* 设置选项卡的样式 */
 div.tab_download {
     overflow: hidden;
-    border: 1px solid rgb(204,204,204);
     background-color: rgb(241,241,241);
 }
 
 /* 设置选项卡内按钮的样式 */
 div.tab_download button {
     background-color: inherit;
-    float: left;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 20px 70px;
     transition: 0.3s;
     font-size: 17px;
+    width:20%;
+    margin-left:1%;
 }
 
 /* 更改悬停按钮的背景色 */
@@ -344,4 +368,27 @@ div.tab_download button.active {
     padding: 6px 12px;
     border: 1px solid rgb(204,204,204);
     border-top: none;
+    -webkit-animation: fadeEffect 0.5s;
+    animation: fadeEffect 0.5s;
+}
+
+/* 淡入选项卡 */
+@-webkit-keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
