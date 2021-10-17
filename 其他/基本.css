@@ -308,3 +308,40 @@ button:active{
     transform:scale(0.93);
     transition:0.15s;
 }
+
+/* 设置选项卡的样式 */
+div.tab_download {
+    overflow: hidden;
+    border: 1px solid rgb(204,204,204);
+    background-color: rgb(241,241,241);
+}
+
+/* 设置选项卡内按钮的样式 */
+div.tab_download button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* 更改悬停按钮的背景色 */
+div.tab_download button:hover {
+    background-color: rgb(221,221,221);
+}
+
+/* Create an active/current tablink class */
+div.tab_download button.active {
+    background-color: rgb(204,204,204);
+}
+
+/* 设置选项卡内容的样式 */
+.tabcontent_download {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid rgb(204,204,204);
+    border-top: none;
+}

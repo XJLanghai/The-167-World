@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="shortcut icon" href="img/167图标.png">
-        <meta charset="utf-8">
-        <title>167号世界 - The 167 World</title>
-        <meta name="keywords" content="167,叶络行,Minecraft,我的世界,167号世界,167号世界！！！,the 167 world,the 167 world!!!">
-        <meta name="description" content="叶络行的Minecraft联机世界">
-        <script src="其他/jquery-1.8.3.min.js"></script>
-        <script src="其他/动画.js"></script>
-        <link href="其他/基本.css" rel="stylesheet">
-        <script src="其他/div.js"></script>
-        <script>
-            var _hmt = _hmt || [];
-            (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?8e71a5d1ab5122454aa484965a73c546";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-            })();
-        </script>
-    </head>
+<head>
+    <link rel="shortcut icon" href="img/167图标.png">
+    <meta charset="utf-8">
+    <title>167号世界 - The 167 World</title>
+    <meta name="keywords" content="167,叶络行,Minecraft,我的世界,167号世界,167号世界！！！,the 167 world,the 167 world!!!">
+    <meta name="description" content="叶络行的Minecraft联机世界">
+    <script src="其他/jquery-1.8.3.min.js"></script>
+    <script src="其他/动画.js"></script>
+    <link href="其他/基本.css" rel="stylesheet">
+    <script src="其他/div.js"></script>
+    <script src="其他/下载栏.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?8e71a5d1ab5122454aa484965a73c546";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
 
     <body>
         <!--背景音乐-->
@@ -114,8 +115,14 @@
                         <p style="font-size: 30px;">为您提供服务器所需要的资源</p>
                     </center>
                 </div>
+                <!--tab栏-->
+                <div class="tab_download">
+                    <button class="tablinks_download active" onclick="openOption(event, 'resourcepack')" id="tabcontentDownloadDefaultOpen">资源包</button>
+                    <button class="tablinks_download" onclick="openOption(event, 'android')">Android客户端</button>
+                    <button class="tablinks_download" onclick="openOption(event, 'javalauncher')">JAVA版启动器</button>
+                </div>
                 <!--资源包-->
-                <div>
+                <div id="resourcepack" class="tabcontent_download" style="display: block;">
                     <div style="background-color: rgb(255, 255, 255);">
                         <br>
                         <p style="font-size: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;· 资源包</p>
@@ -133,7 +140,7 @@
                     </div>
                 </div>
                 <!--Android客户端-->
-                <div>
+                <div id="android" class="tabcontent_download">
                     <div style="background-color: rgb(255, 255, 255);">
                         <br>
                         <p style="font-size: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;· Android客户端</p>
@@ -152,7 +159,7 @@
                     </div>
                 </div>
                 <!--JAVA版启动器-->
-                <div>
+                <div id="javalauncher" class="tabcontent_download">
                     <div style="background-color: rgb(255, 255, 255);">
                         <br>
                         <p style="font-size: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;· JAVA版启动器</p>
