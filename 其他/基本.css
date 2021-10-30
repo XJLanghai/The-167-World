@@ -1,4 +1,4 @@
-html, body{
+html, body {
     height: 100%;
     width: 100%;
 }
@@ -6,7 +6,7 @@ html, body{
 
 @font-face {
     font-family: 站酷高端黑;
-    src:url(../其他/站酷高端黑.ttf);
+    src: url(../其他/站酷高端黑.ttf);
 }
 
 
@@ -37,7 +37,7 @@ html, body{
 @keyframes 左出 {
     from {
         opacity: 0;
-    transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
     }
 
     to {
@@ -70,8 +70,8 @@ html, body{
     animation-fill-mode: both;
     animation-name: 下出;
 }
-.左出 {
 
+.左出 {
     animation-duration: 0.8s;
     animation-fill-mode: both;
     animation-name: 左出;
@@ -93,7 +93,7 @@ html, body{
 }
 
 .is-visible .上出动画 {
-    opacity: 1; 
+    opacity: 1;
     filter: alpha(opacity=100)\9;
     -webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
     transition: opacity 0.8s, transform 0.8s;
@@ -110,7 +110,7 @@ html, body{
 }
 
 .is-visible .下出动画 {
-    opacity: 1; 
+    opacity: 1;
     filter: alpha(opacity=100)\9;
     -webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
     transition: opacity 0.8s, transform 0.8s;
@@ -127,7 +127,7 @@ html, body{
 }
 
 .is-visible .左出动画 {
-    opacity: 1; 
+    opacity: 1;
     filter: alpha(opacity=100)\9;
     -webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
     transition: opacity 0.8s, transform 0.8s;
@@ -154,7 +154,7 @@ html, body{
 
 
 
-body{
+body {
     margin: 0px;
     padding: 0px;
 }
@@ -162,7 +162,7 @@ body{
 
 
 #导航 {
-    opacity: 0.6; 
+    opacity: 0.6;
     position: fixed;
     z-index: 999;
     top: 0;
@@ -170,26 +170,38 @@ body{
     height: 80px;
     background-color: rgb(41, 41, 41);
 }
+
 #导航 ul li {
     display: inline-block;
     width: auto;
     padding: 0px 1%;
     font-family: 站酷高端黑;
     font-size: 30px;
+    transition:0.2s
 }
+
+#导航 ul li:hover{
+    cursor: pointer;
+    color: #b3b3b3;
+    transition:0.3s;
+}
+
 #导航 ul li a {
     text-decoration: none;
     color: rgb(161,161,161);
 }
+
 #标题 {
     width: 210px;
     padding: 12px;
     float: left;
 }
+
 #副标题 {
     font-family: 站酷高端黑;
     font-size: 10px;
 }
+
 #主标题 {
     font-family: 黑体;
     font-size: 30px;
@@ -201,79 +213,79 @@ body{
 
 
 #主图 div {
-	position: absolute;
-	left: 10%;
-	top: 100px;
-	font-size: 100px;
-	color: white;
+    position: absolute;
+    left: 10%;
+    top: 100px;
+    font-size: 100px;
+    color: white;
 }
 
 
 .下出动画1 {
-	opacity: 0;
-	filter: alpha(opacity=0)\9;
-	-webkit-transform: translate3d(0, 50%, 0);
-	transform: translate3d(0, 50%, 0)
+    opacity: 0;
+    filter: alpha(opacity=0)\9;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0)
 }
 
 .is-visible .下出动画1 {
-	opacity: 1;
-	filter: alpha(opacity=100)\9;
-	-webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
-	transition: opacity 0.8s, transform 0.8s;
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0)
+    opacity: 1;
+    filter: alpha(opacity=100)\9;
+    -webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
+    transition: opacity 0.8s, transform 0.8s;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
 }
 
 .下出动画2 {
-	opacity: 0;
-	filter: alpha(opacity=0)\9;
-	-webkit-transform: translate3d(0, 50%, 0);
-	transform: translate3d(0, 50%, 0)
+    opacity: 0;
+    filter: alpha(opacity=0)\9;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0)
 }
 
 .is-visible .下出动画2 {
-	opacity: 1;
-	filter: alpha(opacity=100)\9;
-	-webkit-transition: opacity 1.1s, -webkit-transform 1.1s;
-	transition: opacity 1.1s, transform 1.1s;
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0)
+    opacity: 1;
+    filter: alpha(opacity=100)\9;
+    -webkit-transition: opacity 1.1s, -webkit-transform 1.1s;
+    transition: opacity 1.1s, transform 1.1s;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
 }
 
 .下出动画3 {
-	opacity: 0;
-	filter: alpha(opacity=0)\9;
-	-webkit-transform: translate3d(0, 50%, 0);
-	transform: translate3d(0, 50%, 0)
+    opacity: 0;
+    filter: alpha(opacity=0)\9;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0)
 }
 
 .is-visible .下出动画3 {
-	opacity: 1;
-	filter: alpha(opacity=100)\9;
-	-webkit-transition: opacity 1.4s, -webkit-transform 1.4s;
-	transition: opacity 1.4s, transform 1.4s;
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0)
+    opacity: 1;
+    filter: alpha(opacity=100)\9;
+    -webkit-transition: opacity 1.4s, -webkit-transform 1.4s;
+    transition: opacity 1.4s, transform 1.4s;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
 }
 
 .下出动画4 {
-	opacity: 0;
-	filter: alpha(opacity=0)\9;
-	-webkit-transform: translate3d(0, 50%, 0);
-	transform: translate3d(0, 50%, 0)
+    opacity: 0;
+    filter: alpha(opacity=0)\9;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0)
 }
 
 .is-visible .下出动画4 {
-	opacity: 1;
-	filter: alpha(opacity=100)\9;
-	-webkit-transition: opacity 1.7s, -webkit-transform 1.7s;
-	transition: opacity 1.7s, transform 1.7s;
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0)
+    opacity: 1;
+    filter: alpha(opacity=100)\9;
+    -webkit-transition: opacity 1.7s, -webkit-transform 1.7s;
+    transition: opacity 1.7s, transform 1.7s;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
 }
 
-.button {
+.button_server {
     border: none;
     box-shadow: 0px 0px 15px #93d8b6;
     text-align: left;
@@ -284,9 +296,120 @@ body{
     padding-left: 15px;
     padding-right: 5px;
     border-radius: 10px;
-    transition-duration: 0.3s;
+    transition: 0.15s;
 }
 
-.button:hover {
-        background-color: #63c696;
+.button_server:hover {
+    background-color: #63c696;
+    transition:0.3s;
+}
+
+.button_server:active {
+    transform: scale(0.93);
+    transition: 0.15s;
+}
+
+.button_map {
+    border: none;
+    box-shadow: 0px 0px 15px #93d8b6;
+    text-align: left;
+    margin-left: 5%;
+    background-color: #93d8b6;
+    width: 500px;
+    padding: 15px;
+    padding-left: 15px;
+    padding-right: 5px;
+    border-radius: 10px;
+    transition: 0.15s;
+}
+
+.button_map:hover {
+    background-color: #63c696;
+    transition:0.3s;
+}
+
+.button_map:active {
+    transform: scale(0.93);
+    transition: 0.15s;
+}
+
+/* 设置选项卡的样式 */
+div.tab_download {
+    overflow: hidden;
+    background-color: rgb(241,241,241);
+}
+
+/* 设置选项卡内按钮的样式 */
+div.tab_download button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 20px 70px;
+    transition: 0.3s;
+    font-size: 17px;
+    width:20%;
+    margin-left:1%;
+}
+
+/* 更改悬停按钮的背景色 */
+div.tab_download button:hover {
+    background-color: rgb(221,221,221);
+}
+
+/* Create an active/current tablink class */
+div.tab_download button.active {
+    background-color: rgb(204,204,204);
+}
+
+/* 设置选项卡内容的样式 */
+.tabcontent_download {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid rgb(204,204,204);
+    border-top: none;
+    -webkit-animation: fadeEffect 0.5s;
+    animation: fadeEffect 0.5s;
+}
+
+/* 淡入选项卡 */
+@-webkit-keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.button_resourcepack {
+    border: none;
+    box-shadow: 0px 0px 15px rgb(189,189,189);
+    text-align: left;
+    background-color: rgb(255,255,255);
+    width: 300px;
+    height: 80px;
+    border-radius: 10px;
+    transition: 0.15s;
+}
+
+.button_resourcepack:hover {
+    background-color:rgb(238,238,238);
+    transition: 0.3s;
+}
+
+.button_resourcepack:active {
+    transform: scale(0.93);
+    transition: 0.15s;
 }
