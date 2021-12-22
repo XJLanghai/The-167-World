@@ -352,17 +352,20 @@ body {
     padding-right: 5px;
     border-radius: 10px;
     transition: 0.15s;
+    transform: translateZ(0);
 }
 
-.button_server:hover {
-    background-color: #63c696;
-    transition:0.3s;
-}
+    .button_server:hover {
+        background-color: #63c696;
+        transition: 0.3s;
+        transform: translateZ(0);
+    }
 
-.button_server:active {
-    transform: scale(0.93);
-    transition: 0.15s;
-}
+    .button_server:active {
+        transform:translateZ(0);
+        transform:scale(0.93);
+        transition: 0.15s;
+    }
 
 
 
@@ -378,29 +381,33 @@ body {
     padding-right: 5px;
     border-radius: 10px;
     transition: 0.15s;
+    transform: translateZ(0);
 }
 
-.button_map:hover {
-    background-color: #63c696;
-    transition:0.3s;
-}
+    .button_map:hover {
+        background-color: #63c696;
+        transition: 0.3s;
+        transform: translateZ(0);
+    }
 
-.button_map:active {
-    transform: scale(0.93); /*大小缩放*/
-    transition: 0.15s;
-}
+    .button_map:active {
+        transform: translateZ(0);
+        transform: scale(0.93); /*大小缩放*/
+        transition: 0.15s;
+    }
 
 
 
 .button_download {
     transition: 0.25s;
-    transform: translateZ(0);
+    transform: translateZ(0);/*改善动画期间模糊、抖动问题*/
 }
 
-.button_download:hover {
-    box-shadow: 0px 0px 20px rgb(227,227,227);
-    transform: translateZ(0)scale(0.95);
-    transition: 0.25s;
+    .button_download:hover {
+        box-shadow: 0px 0px 20px rgb(227,227,227);
+        transform: translateZ(0);
+        transform: scale(0.95);
+        transition: 0.25s;
     }
 
 
