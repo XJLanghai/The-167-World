@@ -397,7 +397,7 @@ body {
     transform: translateZ(0);
 }
 
-.button_download:not(download_weiyun):hover {
+.button_download:hover {
     box-shadow: 0px 0px 20px rgb(227,227,227);
     transform: translateZ(0)scale(0.95);
     transition: 0.25s;
