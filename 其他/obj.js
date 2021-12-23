@@ -24,7 +24,7 @@ function MyThree() {
         this.renderer.setSize(width, height);
         element.appendChild(this.renderer.domElement);
         //设置场景颜色 和透明度
-        this.renderer.setClearColor(0x808080, 0.3);
+        this.renderer.setClearColor(0x808080, 0.35);
     }
  
     //初始化相机
@@ -53,8 +53,8 @@ function MyThree() {
     //初始化灯光
     this.initLight = function (color) {
         //点光源
-        this.light = new THREE.PointLight(0xF7DFC0, 1);
-        this.light.position.set(-200, 200, -100);
+        this.light = new THREE.PointLight(0xffead1, 2.3);
+        this.light.position.set(-50, 300, 500);
         this.light.castShadow = true;
         this.scene.add(this.light);
     }
