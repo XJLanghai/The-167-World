@@ -347,9 +347,7 @@ body {
     margin-left: 5%;
     background-color: #93d8b6;
     width: 500px;
-    padding: 15px;
-    padding-left: 15px;
-    padding-right: 5px;
+    padding:15px;
     border-radius: 10px;
     transition: 0.15s;
     transform: translateZ(0);
@@ -377,8 +375,6 @@ body {
     background-color: #93d8b6;
     width: 500px;
     padding: 15px;
-    padding-left: 15px;
-    padding-right: 5px;
     border-radius: 10px;
     transition: 0.15s;
     transform: translateZ(0);
