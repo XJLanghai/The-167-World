@@ -344,7 +344,6 @@ body {
     border: none;
     box-shadow: 0px 0px 15px #93d8b6;
     text-align: left;
-    margin-left: 5%;
     background-color: #93d8b6;
     width: 500px;
     padding:15px;
@@ -371,7 +370,6 @@ body {
     border: none;
     box-shadow: 0px 0px 15px #93d8b6;
     text-align: left;
-    margin-left: 5%;
     background-color: #93d8b6;
     width: 500px;
     padding: 15px;
@@ -395,8 +393,12 @@ body {
 
 
 .button_download {
+    text-align: left;
+    background-color: rgb(227,227,227);
+    padding: 10px;
+    border-radius: 10px;
     transition: 0.25s;
-    transform: translateZ(0);/*改善动画期间模糊、抖动问题*/
+    transform: translateZ(0); /*改善动画期间模糊、抖动问题*/
 }
 
     .button_download:hover {
@@ -405,6 +407,24 @@ body {
         transform: scale(0.95);
         transition: 0.25s;
     }
+
+.button_download_text1 {
+    font-size: 20px;
+    color: rgb(33,33,33);
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 7px;
+    word-break: break-all;
+}
+
+.button_download_text2 {
+    font-size: 9px;
+    color: rgb(66,66,66);
+    text-align: center;
+    margin-bottom: 7px;
+    margin-top: 5px;
+    word-break: break-all;
+}
 
 
 
