@@ -112,23 +112,35 @@
         <script>
 
             //加载资源并验证是否加载完成，第一次加载完成之后会检测是否已加载完成避免重复加载
-            function dynamicLoad(whatjs, number, id) {
+            function dynamic_load(whatJs, number, id) {
                 var _doc = document.getElementsByTagName('head')[0];
                 var script = document.createElement('script');
                 script.setAttribute('type', 'text/javascript');
-                script.setAttribute('src', whatjs);
+                script.setAttribute('src', whatJs);
                 _doc.appendChild(script);
 
                 script.onload = script.onreadystatechange = function () {
                     if (!this.readyState || this.readyState == 'loaded' || this.readyState == 'completed') {
-                        if (naun[id] == 0) {
+                        if (naun_1[id] == 0) {
                             num = number + num;
-                            naun[id] = 1;
+                            naun_1[id] = 1;
                         }
                     }
                     script.onload = script.onreadystatechange = null;
                 }
 
+            }
+
+            //验证图片资源
+            function img_load(whatImg, number, id) {
+                let getImg = new Image();
+                getImg.src = whatImg;
+                if (getImg.complete == true) {
+                    if (naun_2[id] == 0) {
+                        num = number + num;
+                        naun_2[id] = 1;
+                    }
+                }
             }
 
             //开始隐藏加载页面的背景
@@ -163,21 +175,48 @@
             //定义
             var num = 0;
             var nummax = 0;
-            var naun = new Array();
-            var metadata = new Array();
-            metadata = ["其他/jquery-1.8.3.min.js", "其他/动画.js", "其他/div.js", "其他/下载栏.js", "其他/基本.css", "index.html", "obj.html", "其他/obj/1.obj", "img/跳转背景.jpg", "img/Minecraft Java.png", "img/167图标.png", "img/百度网盘.png", "img/尾页.png",]
-            for (var i = 0; i < metadata.length; i++) {
-                naun[i] = 0;
+
+            var metadata_1 = new Array();
+            metadata_1 = ["其他/jquery-1.8.3.min.js",
+                "其他/动画.js",
+                "其他/div.js",
+                "其他/下载栏.js",
+                "其他/基本.css",
+                "index.html",
+                "obj.html",
+                "其他/obj/1.obj"];
+            var naun_1 = new Array();
+            for (var i = 0; i < metadata_1.length; i++) {
+                naun_1[i] = 0;
+            }
+
+            var metadata_2 = new Array();
+            metadata_2 = ["img/跳转背景.jpg",
+                "img/Minecraft Java.png",
+                "img/167图标.png",
+                "img/百度网盘.png",
+                "img/尾页.png"];
+            var naun_2 = new Array();
+            for (var i = 0; i < metadata_2.length; i++) {
+                naun_2[i] = 0;
             }
 
             var t = setInterval(function () {
                 //验证是否加载完成
-                for (var i = 0; i < metadata.length - 1; i++) {
-                    if (naun[i] == 0) {
-                        dynamicLoad(metadata[i], 7, i);
+                for (var i = 0; i < metadata_1.length - 1; i++) {
+                    if (naun_1[i] == 0) {
+                        dynamic_load(metadata_1[i], 7, i);
                     }
                 }
-                dynamicLoad(metadata[metadata.length - 1], 16, metadata.length - 1);
+
+                //验证图片是否加载完成
+                for (var i = 0; i < metadata_2.length; i++) {
+                    if (naun_2[i] == 0) {
+                        img_load(metadata_2[i], 7, i);
+                    }
+                }
+
+                dynamic_load(metadata_1[metadata_1.length - 1], 16, metadata_1.length - 1);
 
                 //更新加载进度百分比
                 var 进度 = document.getElementById("progress");
