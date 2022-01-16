@@ -175,6 +175,7 @@
             //定义
             var num = 0;
             var nummax = 0;
+            var loadtime = 0;
 
             var metadata_1 = new Array();
             metadata_1 = ["其他/jquery-1.8.3.min.js",
@@ -218,30 +219,41 @@
                 }
 
                 //更新加载进度百分比
-                var 进度 = document.getElementById("progress");
-                if (num < 10) {
-                    nummax = "00" + num;
+                function update_progress() {
+                    var 进度 = document.getElementById("progress");
+                    if (num < 10) {
+                        nummax = "00" + num;
+                    }
+                    if (num < 99 && num > 9) {
+                        nummax = "0" + num;
+                    }
+                    if (num == 100) {
+                        nummax = num;
+                    }
+                    进度.innerText = nummax;
                 }
-                if (num < 99 && num > 9) {
-                    nummax = "0" + num;
-                }
-                if (num == 100) {
-                    nummax = num;
-                }
-                进度.innerText = nummax;
+                update_progress();
 
                 //更新加载进度条与背景
-                document.getElementById("progress_left").style.width = num / 2 + "%";
-                document.getElementById("progress_right").style.width = num / 2 + "%";
-                document.getElementById("progress_background").style.opacity = num / 100;
+                function update_progressbar() {
+                    document.getElementById("progress_left").style.width = num / 2 + "%";
+                    document.getElementById("progress_right").style.width = num / 2 + "%";
+                    document.getElementById("progress_background").style.opacity = num / 100;
+                }
+                update_progressbar();
 
-                //加载完成后继续执行...
-                if (num >= 100) {
+                //加载完成或加载超过十秒后继续执行...
+                if (num >= 100 || loadtime == 20) {
+                    num = 100;
+                    update_progress();
+                    update_progressbar();
                     clearInterval(t);
                     setTimeout("t1()", 1500);
                 }
 
-            }, 200);
+                loadtime++;
+
+            }, 500);
         </script>
 
     </div>
