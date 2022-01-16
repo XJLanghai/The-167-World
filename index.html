@@ -213,7 +213,9 @@
                     }
                 }
 
-                dynamic_load(metadata_1[metadata_1.length - 1], 12, metadata_1.length - 1);
+                if (naun_1[metadata_1.length - 1] == 0) {
+                    dynamic_load(metadata_1[metadata_1.length - 1], 12, metadata_1.length - 1);
+                }
 
                 //更新加载进度百分比
                 var 进度 = document.getElementById("progress");
