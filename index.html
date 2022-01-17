@@ -81,6 +81,36 @@
             transition-delay: 0s;
         }
 
+        #progress_up {
+            height: 1.5px;
+            background-color: rgb(250,250,250);
+            position: absolute;
+            left: 0%;
+            top: 50%;
+            margin-top: -50px;
+            width: 100%;
+            transition: top 700ms;
+            transition-property: top;
+            transition-duration: 700ms;
+            transition-timing-function: cubic-bezier(.55,.06,.68,.19);
+            transition-delay: 0s;
+        }
+
+        #progress_down {
+            height: 1.5px;
+            background-color: rgb(250,250,250);
+            position: absolute;
+            right: 0%;
+            top: 50%;
+            margin-top: -48.5px;
+            width: 100%;
+            transition: top 700ms;
+            transition-property: top;
+            transition-duration: 700ms;
+            transition-timing-function: cubic-bezier(.55,.06,.68,.19);
+            transition-delay: 0s;
+        }
+
         #progress_background {
             opacity: 0;
             position: absolute;
@@ -101,7 +131,7 @@
     <!--加载界面-->
     <div id="load_all">
 
-        <div id="progress_all" style="position: absolute; z-index: 10000; opacity: 1; width: 100%; height: 100%; background-color: rgb(0,0,0);">
+        <div id="progress_p1" style="position: absolute; z-index: 1000; opacity: 1; width: 100%; height: 100%; background-color: rgb(0,0,0);">
             <div id="progress_background"></div>
             <p id="progress_title">- THE 167 WORLD -</p>
             <p id="progress">000</p>
@@ -109,8 +139,14 @@
             <div id="progress_right"></div>
         </div>
 
-        <script>
+        <div id="progress_p2" style="display: none; position: fixed; z-index: -100; width: 100%; height: 100%;">
+            <div id="progress_up"></div>
+            <div id="progress_down"></div>
+        </div>
 
+        <div id="backgroud_transition" style="position: fixed; z-index:-101; width: 100%; height: 100%; background-image: url(img/跳转背景.jpg); background-size:100%;"></div>
+
+        <script>
             //加载资源并验证是否加载完成，第一次加载完成之后会检测是否已加载完成避免重复加载
             function dynamic_load(whatJs, number, id) {
                 var _doc = document.getElementsByTagName('head')[0];
@@ -128,7 +164,6 @@
                     }
                     script.onload = script.onreadystatechange = null;
                 }
-
             }
 
             //验证图片资源
@@ -146,14 +181,16 @@
             //开始隐藏加载页面的背景
             function t2() {
                 var num3 = 0;
+                document.getElementById('progress_up').style.top = -50 + "%";
+                document.getElementById('progress_down').style.top = 150 + "%";
                 var ttt = setInterval(function () {
                     num3 = num3 + 2;
                     document.getElementById('index_all').style.opacity = num3 / 100;
                     if (num3 >= 100) {
                         clearInterval(ttt)
-                        setTimeout("document.getElementById('backgroud_transition').style.display = 'none'", 100);
+                        document.getElementById('load_all').style.display = 'none';
                     }
-                }, 5);
+                }, 10);
             }
 
             //开始隐藏加载页面的进度条
@@ -161,13 +198,13 @@
                 var num2 = 100;
                 var tt = setInterval(function () {
                     num2 = num2 - 5;
-                    document.getElementById('progress_all').style.opacity = num2 / 100;
+                    document.getElementById('progress_p1').style.opacity = num2 / 100;
                     if (num2 <= 0) {
                         clearInterval(tt)
-                        document.getElementById('load_all').style.display = 'none';
                         document.getElementById('index_all').style.display = '';
+                        document.getElementById('progress_p1').style.display = 'none';
                         //完成后继续执行...
-                        setTimeout("t2()", 200);
+                        setTimeout("t2()", 100);
                     }
                 }, 5);
             }
@@ -182,7 +219,7 @@
                 "其他/动画.js",
                 "其他/div.js",
                 "其他/下载栏.js"
-                ];
+            ];
             var naun_1 = new Array();
             for (var i = 0; i < metadata_1.length; i++) {
                 naun_1[i] = 0;
@@ -248,6 +285,7 @@
                     update_progress();
                     update_progressbar();
                     clearInterval(t);
+                    document.getElementById('progress_p2').style.display = '';
                     setTimeout("t1()", 1500);
                 }
 
@@ -259,7 +297,7 @@
     </div>
 
     <!--过渡图片-->
-    <div id="backgroud_transition" style="position: fixed; z-index:-100; width: 100%; height: 100%; background-image: url(img/跳转背景.jpg); background-size:100%;"></div>
+    <!--<div id="backgroud_transition" style="position: fixed; z-index:-100; width: 100%; height: 100%; background-image: url(img/跳转背景.jpg); background-size:100%;"></div>-->
 
     <!--主界面-->
     <div id="index_all" style="display:none;opacity:0">
@@ -292,12 +330,12 @@
         <div id="a1" style=" background-color: rgb(233, 233, 233);">
             <!--内容-->
             <div id="内容">
-                <div id="主图">
-                    <iframe src="obj.html" frameborder="0" width="100%" height="900px" scrolling="no"></iframe>
-                    <div class="左出" style="position: absolute;top: 10px;">
-                        <pre style="font-family: 站酷高端黑;">167号世界</pre>
-                        <p style="font-size: 30px;font-weight: lighter;">The 167 World</p>
-                        <p style="font-size: 30px;font-weight: lighter;">叶络行的Minecraft联机世界</p>
+                <div id="主图" style="background-color: rgb(45,45,45);overflow:hidden;">
+                    <iframe src="obj.html" frameborder="0"scrolling="no" style="width:100%;height:900px;margin-left:280px"></iframe>
+                    <div class="左出" style="position: absolute;top: 50px;left:90px">
+                        <pre style="font-size: 117px; font-family: 站酷高端黑; margin-bottom: 130px; ">167号世界</pre>
+                        <p style="font-size: 27px; font-weight: lighter; margin: 0px; margin-top: 10px; ">The 167 World</p>
+                        <p style="font-size: 27px; font-weight: lighter; margin: 0px; margin-top: 10px; ">叶络行的Minecraft联机世界</p>
                     </div>
                 </div>
 
@@ -382,6 +420,7 @@
                                                         <div style="height: 5px;"></div>
                                                         <p class="button_download_text1">点我下载</p>
                                                         <p class="button_download_text2">https://the-167-world.tk/download/file/QualityArmoryV2.1.9.zip</p>
+                                                        <img src="img/下载.png" class="button_download_img" style="width: 60px; margin-left: -9px; margin-top: -14px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 13%, rgba(0, 0, 0, 0.9) 90%); " />
                                                         <div style="height: 5px;"></div>
                                                     </div>
                                                 </a>
@@ -410,11 +449,12 @@
                                             <!--百度云下载-->
                                             <div style="width:27%;float:left">
                                                 <a style="text-decoration: none;" href="https://pan.baidu.com/s/1e3PCPv9KJATvJqFgvp5kzQ" target="_blank">
-                                                    <div class="button_download" style="overflow:hidden">
+                                                    <div class="button_download">
                                                         <div style="height: 5px;"></div>
                                                         <p class="button_download_text1">百度云下载&nbsp;&nbsp;&nbsp;&nbsp;提取码：167w</p>
                                                         <p class="button_download_text2">https://pan.baidu.com/s/1e3PCPv9KJATvJqFgvp5kzQ</p>
-                                                        <img src="img/百度网盘.png" class="button_download_img" style="width: 90px; margin-left: -27px; margin-top: -15px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 17%, rgba(0, 0, 0, 1) 80%); " /><!--找这个渐变方法找了一个半小时，特此抱怨-->
+                                                        <!--找这个渐变方法找了一个半小时，特此抱怨-->
+                                                        <img src="img/百度网盘.png" class="button_download_img" style="width: 75px; margin-left: -15px; margin-top: -20px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 17%, rgba(0, 0, 0, 0.9) 80%); " />
                                                         <div style="height: 5px;"></div>
                                                     </div>
                                                 </a>
@@ -423,12 +463,11 @@
                                             <div style="width:27%;float:left;margin-left:3%">
                                                 <a style="text-decoration: none;" href="https://share.weiyun.com/FCU3qUqW" target="_blank">
                                                     <div class="button_download">
-                                                        <div id="download_weiyun">
-                                                            <div style="height: 5px;"></div>
-                                                            <p class="button_download_text1">微云下载</p>
-                                                            <p class="button_download_text2">https://share.weiyun.com/FCU3qUqW</p>
-                                                            <div style="height: 5px;"></div>
-                                                        </div>
+                                                        <div style="height: 5px;"></div>
+                                                        <p class="button_download_text1">微云下载</p>
+                                                        <p class="button_download_text2">https://share.weiyun.com/FCU3qUqW</p>
+                                                        <img src="img/微云.png" class="button_download_img" style="width:80px; margin-left: -15px; margin-top: -15px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 17%, rgba(0, 0, 0, 0.9) 80%); " />
+                                                        <div style="height: 5px;"></div>
                                                     </div>
                                                 </a>
                                             </div>
@@ -459,6 +498,7 @@
                                                         <div style="height: 5px;"></div>
                                                         <p class="button_download_text1">HMCL启动器</p>
                                                         <p class="button_download_text2">https://hmcl.huangyuhui.net/download</p>
+                                                        <img src="img/HMCL.png" class="button_download_img" style="width: 75px; margin-left: -17px; margin-top: -23px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 90%); " />
                                                         <div style="height: 5px;"></div>
                                                     </div>
                                                 </a>
@@ -470,6 +510,7 @@
                                                         <div style="height: 5px;"></div>
                                                         <p class="button_download_text1">Minecraft Launcher官方启动器</p>
                                                         <p class="button_download_text2">https://www.minecraft.net/zh-hans/download</p>
+                                                        <img src="img/Minecraft Launcher.png" class="button_download_img" style="width: 75px; margin-left: -17px; margin-top: -23px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 90%); " />
                                                         <div style="height: 5px;"></div>
                                                     </div>
                                                 </a>
@@ -481,6 +522,7 @@
                                                         <div style="height: 5px;"></div>
                                                         <p class="button_download_text1">PCL2启动器</p>
                                                         <p class="button_download_text2">https://afdian.net/p/0164034c016c11ebafcb52540025c377</p>
+                                                        <img src="img/PCL2.png" class="button_download_img" style="width: 75px; margin-left: -17px; margin-top: -22px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 90%); " />
                                                         <div style="height: 5px;"></div>
                                                     </div>
                                                 </a>

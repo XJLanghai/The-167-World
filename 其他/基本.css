@@ -397,6 +397,7 @@ body {
     background-color: rgb(227,227,227);
     padding: 10px;
     border-radius: 10px;
+    overflow:hidden;
     transition: 0.25s;
     transform: translateZ(0); /*改善动画期间模糊、抖动问题*/
 }
