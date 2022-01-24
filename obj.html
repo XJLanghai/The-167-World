@@ -14,7 +14,7 @@
     <script src="其他/three.js-master-87/build/three.js"></script>
     <script src="其他/three.js-master-87/examples/js/loaders/OBJLoader.js"></script>
     <script src="其他/three.js-master-87/examples/js/loaders/MTLLoader.js"></script>
-    <script src="其他/three.js-master-87/examples/js/controls/OrbitControls.js"></script>
+    <!--<script src="其他/three.js-master-87/examples/js/controls/OrbitControls.js"></script>-->
     <script src="其他/obj.js"></script>
     <style>
         body, html {
@@ -32,9 +32,9 @@
  
         //自适应尺寸
         function onResize() {
-            myThree.camera.aspect = window.innerWidth / window.innerHeight;
+            myThree.camera.aspect = (window.innerWidth / 1.8) / (window.innerHeight / 1.8);
             myThree.camera.updateProjectionMatrix();
-            myThree.renderer.setSize(window.innerWidth, window.innerHeight);
+            myThree.renderer.setSize((window.innerWidth / 1.8), (window.innerHeight / 1.8));
         }
  
         //入口
@@ -58,10 +58,10 @@
             })
             //刷新页面
             myThree.renderer.render(myThree.scene, myThree.camera);
-            var controls = new THREE.OrbitControls(myThree.camera);
-            controls.enableZoom = false;
-            controls.enablePan= false;
-            controls.rotateSpeed = 0.01;
+            //var controls = new THREE.OrbitControls(myThree.camera);
+            //controls.enableZoom = false;
+            //controls.enablePan= false;
+            //controls.rotateSpeed = 0.01;
             requestAnimationFrame(animation);
         }
 

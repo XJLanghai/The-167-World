@@ -7,8 +7,8 @@
     <title>167号世界 - The 167 World</title>
     <meta name="keywords" content="167,叶络行,Minecraft,我的世界,167号世界,167号世界！！！,the 167 world,the 167 world!!!">
     <meta name="description" content="叶络行的Minecraft联机世界">
-    <script src="其他/jquery-1.8.3.min.js"></script>
     <link href="其他/基本.css" rel="stylesheet">
+    <script src="其他/jquery-1.8.3.min.js"></script>
     <script src="其他/动画.js"></script>
     <script src="其他/div.js"></script>
     <script src="其他/下载栏.js"></script>
@@ -22,19 +22,7 @@
         })();
     </script>
     <style>
-        /*均是加载界面的css，若转到css文件里会发生莫名其妙的错误*/
-        #progress_title {
-            font-size: 300%;
-            white-space: nowrap;
-            color: rgb(250,250,250);
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-top: -150px;
-            margin-left: -222px;
-        }
-
+        /*均是加载界面的css，某些若转到css文件里会发生莫名其妙的错误*/
         #progress {
             font-size: 150%;
             white-space: nowrap;
@@ -51,11 +39,10 @@
                 content: "%";
             }
 
-        #progress_left {
+        .progress_bar {
             height: 3px;
             background-color: rgb(250,250,250);
             position: absolute;
-            left: 0%;
             top: 50%;
             margin-top: -50px;
             width: 0%;
@@ -66,27 +53,17 @@
             transition-delay: 0s;
         }
 
+        #progress_left {
+            left: 0%;
+        }
+
         #progress_right {
-            height: 3px;
-            background-color: rgb(250,250,250);
-            position: absolute;
             right: 0%;
-            top: 50%;
-            margin-top: -50px;
-            width: 0%;
-            transition: width 300ms;
-            transition-property: width;
-            transition-duration: 300ms;
-            transition-timing-function: ease;
-            transition-delay: 0s;
         }
 
         #progress_up {
             height: 1.5px;
-            background-color: rgb(250,250,250);
-            position: absolute;
             left: 0%;
-            top: 50%;
             margin-top: -50px;
             width: 100%;
             transition: top 700ms;
@@ -98,10 +75,7 @@
 
         #progress_down {
             height: 1.5px;
-            background-color: rgb(250,250,250);
-            position: absolute;
             right: 0%;
-            top: 50%;
             margin-top: -48.5px;
             width: 100%;
             transition: top 700ms;
@@ -135,18 +109,20 @@
             <div id="progress_background"></div>
             <p id="progress_title">- THE 167 WORLD -</p>
             <p id="progress">000</p>
-            <div id="progress_left"></div>
-            <div id="progress_right"></div>
+            <div class="progress_bar" id="progress_left"></div>
+            <div class="progress_bar" id="progress_right"></div>
         </div>
 
         <div id="progress_p2" style="display: none; position: fixed; z-index: -100; width: 100%; height: 100%;">
-            <div id="progress_up"></div>
-            <div id="progress_down"></div>
+            <div class="progress_bar" id="progress_up"></div>
+            <div class="progress_bar" id="progress_down"></div>
         </div>
 
         <div id="backgroud_transition" style="position: fixed; z-index:-101; width: 100%; height: 100%; background-image: url(img/跳转背景.jpg); background-size:100%;"></div>
 
         <script>
+            //dynamic_load(需检测的js文件，增加多少进度，编号)
+            //img_load(需检测的img文件，增加多少进度，编号)
             //加载资源并验证是否加载完成，第一次加载完成之后会检测是否已加载完成避免重复加载
             function dynamic_load(whatJs, number, id) {
                 var _doc = document.getElementsByTagName('head')[0];
@@ -229,7 +205,7 @@
             metadata_2 = ["img/跳转背景.jpg",
                 "img/Minecraft Java.png",
                 "img/167图标.png",
-                "img/百度网盘.png",
+                "img/封面.png",
                 "img/尾页.png"];
             var naun_2 = new Array();
             for (var i = 0; i < metadata_2.length; i++) {
@@ -240,7 +216,7 @@
                 //验证是否加载完成
                 for (var i = 0; i < metadata_1.length - 1; i++) {
                     if (naun_1[i] == 0) {
-                        dynamic_load(metadata_1[i], 11, i);
+                        dynamic_load(metadata_1[i], 11, i); 
                     }
                 }
 
@@ -296,9 +272,6 @@
 
     </div>
 
-    <!--过渡图片-->
-    <!--<div id="backgroud_transition" style="position: fixed; z-index:-100; width: 100%; height: 100%; background-image: url(img/跳转背景.jpg); background-size:100%;"></div>-->
-
     <!--主界面-->
     <div id="index_all" style="display:none;opacity:0">
         <!--背景音乐-->
@@ -309,7 +282,7 @@
         <!--导航-->
         <div id="导航">
             <div id="标题">
-                <img src="https://p.qlogo.cn/gh/494930147/494930147/140" style="height: 60px;width: 60px;border-radius: 50%;">
+                <img src="https://p.qlogo.cn/gh/494930147/494930147/140">
                 <div id="主标题">
                     167号世界
                     <div id="副标题">
@@ -317,12 +290,16 @@
                     </div>
                 </div>
             </div>
-            <ul class="右出" style="color: white;">
-                <li onclick="a(0)">首页</li>
-                <li onclick="a(1)">下载</li>
-                <li onclick="a(2)">服务器</li>
-                <li onclick="a(3)">线上地图</li>
-                <li onclick="a(4)">关于我们</li>
+            <ul style="color: white;text-align:center;padding: 0px;">
+                <li id="aaa1" onclick="a(0)">首页</li>
+                <p>·</p>
+                <li id="aaa2" onclick="a(1)">下载</li>
+                <p>·</p>
+                <li id="aaa3" onclick="a(2)">服务器</li>
+                <p>·</p>
+                <li id="aaa4" onclick="a(3)">线上地图</li>
+                <p>·</p>
+                <li id="aaa5" onclick="a(4)">关于我们</li>
             </ul>
         </div>
 
@@ -330,12 +307,22 @@
         <div id="a1" style=" background-color: rgb(233, 233, 233);">
             <!--内容-->
             <div id="内容">
-                <div id="主图" style="background-color: rgb(45,45,45);overflow:hidden;">
-                    <iframe src="obj.html" frameborder="0"scrolling="no" style="width:100%;height:900px;margin-left:280px"></iframe>
-                    <div class="左出" style="position: absolute;top: 50px;left:90px">
-                        <pre style="font-size: 117px; font-family: 站酷高端黑; margin-bottom: 130px; ">167号世界</pre>
-                        <p style="font-size: 27px; font-weight: lighter; margin: 0px; margin-top: 10px; ">The 167 World</p>
-                        <p style="font-size: 27px; font-weight: lighter; margin: 0px; margin-top: 10px; ">叶络行的Minecraft联机世界</p>
+                <div id="主图">
+                    <div id="主图_p1">
+                        <div id="主图_background"></div>
+                        <div id="主图_background_mask"></div>
+                        <iframe id="主图_3d" src="obj.html" frameborder="0" scrolling="no"></iframe>
+                    </div>
+                    <div id="主图_p2">
+                        <p id="主图_title">167号世界</p>
+                        <p id="主图_title_en">The  167  World</p>
+                        <p class="主图_plh">.&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;.&nbsp;.&nbsp;.</p>
+                        <p class="主图_plh">.&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;.</p>
+                        <p class="主图_plh">&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;.</p>
+                        <p class="主图_plh">&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;.</p>
+                        <p class="主图_plh">&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;.</p>
+                        <p class="主图_intro" style="margin-top: 20px">叶络行的</p>
+                        <p class="主图_intro" style="margin-top: 0px">Minecraft联机世界</p>
                     </div>
                 </div>
 
@@ -386,193 +373,130 @@
         <div id="a2" style="display: none;background-color: rgb(233, 233, 233);">
             <div id="内容">
                 <!--提示-->
-                <div style="background-color: rgb(233, 233, 233);height: 300px;">
-                    <div style="height: 100px;"></div>
+                <div class="tips">
                     <center>
-                        <img src="img/下载.png" style="width: 5%;">
-                        <p style="font-size: 30px;">为您提供服务器所需要的资源</p>
+                        <img class="tips_img" src="img/下载.png">
+                        <p class="tips_text">为您提供服务器所需要的资源</p>
                     </center>
                 </div>
                 <!--tab栏-->
                 <center>
-                    <div class="tab_download">
+                    <div class="download_tab">
                         <button style="border-bottom-left-radius: 10px; border-top-left-radius: 10px; " class="tablinks_download active" onclick="openOption(event, 'resourcepack')" id="tabcontentDownloadDefaultOpen">资源包</button>
                         <button style="border: 10px; " class="tablinks_download" onclick="openOption(event, 'android')">Android客户端</button>
                         <button style="border-bottom-right-radius: 10px; border-top-right-radius:10px; " class="tablinks_download" onclick="openOption(event, 'javalauncher')">JAVA版启动器</button>
                     </div>
                 </center>
-                <div style="background-color:rgb(253,253,253)">
+                <div style="background-color:rgb(253,253,253);margin-bottom:80px">
                     <!--资源包-->
-                    <div id="resourcepack" class="tabcontent_download" style="display: block;">
-                        <div>
-                            <br>
-                            <h1 style="font-size: 40px; margin-left: 5%">· 资源包</h1>
-                            <center>
-                                <div style="height: 250px; width: 90%;">
-                                    <div style="text-align: left;">
-                                        <p style="font-size: 30px; margin-left: 5%">167号世界｜服务器资源包下载</p>
-                                        <p style="color: rgb(66,66,66); font-size: 17px; margin-left: 5% ">基于QualityArmory插件资源包进行修改，若您进入服务器后无法加载枪械模型，请下载该资源包并在本地进行使用。</p>
-                                        <br>
-                                        <div style="max-height: 1%; margin-left: 5%;">
-                                            <div style="width:27%;float:left">
-                                                <a style="text-decoration: none; " href="download/file/QualityArmoryV2.1.9.zip" target="_blank">
-                                                    <div class="button_download">
-                                                        <div style="height: 5px;"></div>
-                                                        <p class="button_download_text1">点我下载</p>
-                                                        <p class="button_download_text2">https://the-167-world.tk/download/file/QualityArmoryV2.1.9.zip</p>
-                                                        <img src="img/下载.png" class="button_download_img" style="width: 60px; margin-left: -9px; margin-top: -14px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 13%, rgba(0, 0, 0, 0.9) 90%); " />
-                                                        <div style="height: 5px;"></div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
+                    <div id="resourcepack" class="tab_down" style="display: block;">
+                        <h1 class="tab_down_title">· 资源包</h1>
+                        <div class="tab_down_content">
+                            <p class="tab_down_text1">167号世界｜服务器资源包下载</p>
+                            <p class="tab_down_text2">基于QualityArmory插件资源包进行修改，若您进入服务器后无法加载枪械模型，请下载该资源包并在本地进行使用。</p>
+                            <div class="tab_down_button_group">
+                                <a style="text-decoration: none; " href="download/file/QualityArmoryV2.1.9.zip" target="_blank">
+                                    <div class="tab_down_button">
+                                        <p class="tab_down_button_text1">点我下载</p>
+                                        <p class="tab_down_button_text2">https://the-167-world.tk/download/file/QualityArmoryV2.1.9.zip</p>
+                                        <img src="img/下载.png" class="tab_down_button_img" style="width: 60px; margin-left: -9px; margin-top: -14px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 13%, rgba(0, 0, 0, 0.9) 90%); " />
                                     </div>
-                                </div>
-                            </center>
+                                </a>
+                            </div>
                         </div>
-                        <br>
-                        <br>
                     </div>
                     <!--Android客户端-->
                     <!--不建议删除「style=""」-->
-                    <div id="android" class="tabcontent_download" style="">
-                        <div>
-                            <br>
-                            <h1 style="font-size: 40px; margin-left: 5%">· Android客户端</h1>
-                            <center>
-                                <div style="height: 250px; width: 90%;">
-                                    <div style="text-align: left;">
-                                        <p style="font-size: 30px; margin-left: 5%">167号世界｜服务器使用了Geyser插件，兼容基岩版加入服务器</p>
-                                        <p style="color: rgb(66,66,66); font-size: 17px; margin-left: 5% ">仅提供Minecraft beta 1.16.220.5</p>
-                                        <br>
-                                        <div style="max-height: 1%; margin-left: 5%">
-                                            <!--百度云下载-->
-                                            <div style="width:27%;float:left">
-                                                <a style="text-decoration: none;" href="https://pan.baidu.com/s/1e3PCPv9KJATvJqFgvp5kzQ" target="_blank">
-                                                    <div class="button_download">
-                                                        <div style="height: 5px;"></div>
-                                                        <p class="button_download_text1">百度云下载&nbsp;&nbsp;&nbsp;&nbsp;提取码：167w</p>
-                                                        <p class="button_download_text2">https://pan.baidu.com/s/1e3PCPv9KJATvJqFgvp5kzQ</p>
-                                                        <!--找这个渐变方法找了一个半小时，特此抱怨-->
-                                                        <img src="img/百度网盘.png" class="button_download_img" style="width: 75px; margin-left: -15px; margin-top: -20px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 17%, rgba(0, 0, 0, 0.9) 80%); " />
-                                                        <div style="height: 5px;"></div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <!--微云下载-->
-                                            <div style="width:27%;float:left;margin-left:3%">
-                                                <a style="text-decoration: none;" href="https://share.weiyun.com/FCU3qUqW" target="_blank">
-                                                    <div class="button_download">
-                                                        <div style="height: 5px;"></div>
-                                                        <p class="button_download_text1">微云下载</p>
-                                                        <p class="button_download_text2">https://share.weiyun.com/FCU3qUqW</p>
-                                                        <img src="img/微云.png" class="button_download_img" style="width:80px; margin-left: -15px; margin-top: -15px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 17%, rgba(0, 0, 0, 0.9) 80%); " />
-                                                        <div style="height: 5px;"></div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
+                    <div id="android" class="tab_down" style="">
+                        <h1 class="tab_down_title">· Android客户端</h1>
+                        <div class="tab_down_content">
+                            <p class="tab_down_text1">167号世界｜服务器使用了Geyser插件，兼容基岩版加入服务器</p>
+                            <p class="tab_down_text2">仅提供Minecraft beta 1.16.220.5</p>
+                            <div class="tab_down_button_group">
+                                <!--百度云下载-->
+                                <a style="text-decoration: none;" href="https://pan.baidu.com/s/1e3PCPv9KJATvJqFgvp5kzQ" target="_blank">
+                                    <div class="tab_down_button">
+                                        <p class="tab_down_button_text1">百度云下载&nbsp;&nbsp;&nbsp;&nbsp;提取码：167w</p>
+                                        <p class="tab_down_button_text2">https://pan.baidu.com/s/1e3PCPv9KJATvJqFgvp5kzQ</p>
+                                        <!--找这个渐变方法找了一个半小时，特此抱怨-->
+                                        <img src="img/百度网盘.png" class="tab_down_button_img" style="width: 75px; margin-left: -15px; margin-top: -20px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 17%, rgba(0, 0, 0, 0.9) 80%); " />
                                     </div>
-                                </div>
-                            </center>
+                                </a>
+                                <!--微云下载-->
+                                <a style="text-decoration: none;" href="https://share.weiyun.com/FCU3qUqW" target="_blank">
+                                    <div class="tab_down_button">
+                                        <p class="tab_down_button_text1">微云下载</p>
+                                        <p class="tab_down_button_text2">https://share.weiyun.com/FCU3qUqW</p>
+                                        <img src="img/微云.png" class="tab_down_button_img" style="width:80px; margin-left: -15px; margin-top: -15px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 17%, rgba(0, 0, 0, 0.9) 80%); " />
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                        <br>
-                        <br>
                     </div>
                     <!--JAVA版启动器-->
-                    <div id="javalauncher" class="tabcontent_download" style="">
-                        <div>
-                            <br>
-                            <h1 style="font-size: 40px; margin-left: 5%">· JAVA版启动器</h1>
-                            <center>
-                                <div style="height: 250px; width: 90%;">
-                                    <div style="text-align: left;">
-                                        <p style="font-size: 30px; margin-left: 5%">下方链接为Minecraft Java版各启动器的官方下载页面</p>
-                                        <p style="color: rgb(66,66,66); font-size: 17px; margin-left: 5% ">排序A-Z</p>
-                                        <br>
-                                        <div style="max-height: 1%; margin-left: 5%">
-                                            <!--HMCL启动器-->
-                                            <div style="width:27%;float:left">
-                                                <a style="text-decoration: none;" href="https://hmcl.huangyuhui.net/download" target="_blank">
-                                                    <div class="button_download">
-                                                        <div style="height: 5px;"></div>
-                                                        <p class="button_download_text1">HMCL启动器</p>
-                                                        <p class="button_download_text2">https://hmcl.huangyuhui.net/download</p>
-                                                        <img src="img/HMCL.png" class="button_download_img" style="width: 75px; margin-left: -17px; margin-top: -23px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 90%); " />
-                                                        <div style="height: 5px;"></div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <!--Minecraft Launcher官方启动器-->
-                                            <div style="width:27%;float:left;margin-left:3%">
-                                                <a style="text-decoration: none;" href="https://www.minecraft.net/zh-hans/download" target="_blank">
-                                                    <div class="button_download">
-                                                        <div style="height: 5px;"></div>
-                                                        <p class="button_download_text1">Minecraft Launcher官方启动器</p>
-                                                        <p class="button_download_text2">https://www.minecraft.net/zh-hans/download</p>
-                                                        <img src="img/Minecraft Launcher.png" class="button_download_img" style="width: 75px; margin-left: -17px; margin-top: -23px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 90%); " />
-                                                        <div style="height: 5px;"></div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <!--PCL2启动器-->
-                                            <div style="width:27%; float:left;margin-left:3%">
-                                                <a style="text-decoration: none;" href="https://afdian.net/p/0164034c016c11ebafcb52540025c377" target="_blank">
-                                                    <div class="button_download">
-                                                        <div style="height: 5px;"></div>
-                                                        <p class="button_download_text1">PCL2启动器</p>
-                                                        <p class="button_download_text2">https://afdian.net/p/0164034c016c11ebafcb52540025c377</p>
-                                                        <img src="img/PCL2.png" class="button_download_img" style="width: 75px; margin-left: -17px; margin-top: -22px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 90%); " />
-                                                        <div style="height: 5px;"></div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
+                    <div id="javalauncher" class="tab_down" style="">
+                        <h1 class="tab_down_title">· JAVA版启动器</h1>
+                        <div class="tab_down_content">
+                            <p class="tab_down_text1">下方链接为Minecraft Java版各启动器的官方下载页面</p>
+                            <p class="tab_down_text2">排序A-Z</p>
+                            <div class="tab_down_button_group">
+                                <!--HMCL启动器-->
+                                <a style="text-decoration: none;" href="https://hmcl.huangyuhui.net/download" target="_blank">
+                                    <div class="tab_down_button">
+                                        <p class="tab_down_button_text1">HMCL启动器</p>
+                                        <p class="tab_down_button_text2">https://hmcl.huangyuhui.net/download</p>
+                                        <img src="img/HMCL.png" class="tab_down_button_img" style="width: 75px; margin-left: -17px; margin-top: -23px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 90%); " />
                                     </div>
-                                </div>
-                            </center>
+                                </a>
+                                <!--Minecraft Launcher官方启动器-->
+                                <a style="text-decoration: none;" href="https://www.minecraft.net/zh-hans/download" target="_blank">
+                                    <div class="tab_down_button">
+                                        <p class="tab_down_button_text1">Minecraft Launcher官方启动器</p>
+                                        <p class="tab_down_button_text2">https://www.minecraft.net/zh-hans/download</p>
+                                        <img src="img/Minecraft Launcher.png" class="tab_down_button_img" style="width: 75px; margin-left: -17px; margin-top: -23px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 90%); " />
+                                    </div>
+                                </a>
+                                <!--PCL2启动器-->
+                                <a style="text-decoration: none;" href="https://afdian.net/p/0164034c016c11ebafcb52540025c377" target="_blank">
+                                    <div class="tab_down_button">
+                                        <p class="tab_down_button_text1">PCL2启动器</p>
+                                        <p class="tab_down_button_text2">https://afdian.net/p/0164034c016c11ebafcb52540025c377</p>
+                                        <img src="img/PCL2.png" class="tab_down_button_img" style="width: 75px; margin-left: -17px; margin-top: -22px; -webkit-mask-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.9) 90%); " />
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                        <br>
-                        <br>
                     </div>
-                    <br>
-                    <br>
                 </div>
             </div>
         </div>
 
         <!--服务器-->
         <div id="a3" style="display: none;background-color: rgb(233, 233, 233);">
+            <!--内容-->
             <div id="内容">
-                <!--内容-->
-                <div id="内容">
-                    <!--提示-->
-                    <div style="background-color: rgb(233, 233, 233);height: 300px;">
-                        <div style="height: 100px;"></div>
-                        <center>
-                            <img src="img/服务器.png" style="width: 5%;">
-                            <p style="font-size: 30px;">为您提供我们的服务器的信息</p>
-                        </center>
-                    </div>
-                    <!--1.16.5-->
-                    <div>
-                        <!--167号世界-->
-                        <div style="background-color:rgb(253,253,253)">
-                            <br>
-                            <h1 style="font-size: 40px; margin-left: 5%">· Minecraft JAVA 1.16.5</h1>
-                            <br>
-                            <div style="margin-left: 5%; width: 530px;">
-                                <a href="server/The 167 World!!!/index.html" target="_blank" style="color:#ffffff; text-decoration: none; margin: 0;" onfocus="this.blur()">
-                                    <!--onfocus="this.blur()"是为了删除点击按钮后出现的虚线框-->
-                                    <div class="button_server">
-                                        <div style="height: 5px;"></div>
-                                        <h1 style="margin-left:5%;">167号世界!!!</h1>
-                                        <p style="font-size: large; margin-left: 5%">相关介绍以及玩家社区！点击查看！</p>
-                                        <div style="height: 5px;"></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div style="height: 70px;"></div>
+                <!--提示-->
+                <div class="tips">
+                    <center>
+                        <img class="tips_img" src="img/服务器.png">
+                        <p class="tips_text">为您提供我们的服务器的信息</p>
+                    </center>
+                </div>
+                <!--1.16.5-->
+                <div>
+                    <!--167号世界-->
+                    <div style="background-color:rgb(253,253,253)">
+                        <h1 style="font-size: 40px; margin-left: 5%; margin-top: 0px;margin-bottom: 0px; padding-top: 45px; padding-bottom: 45px; ">· Minecraft JAVA 1.16.5</h1>
+                        <div style="margin-left: 5%; width: 530px; margin-bottom: 70px;">
+                            <a href="server/The 167 World!!!/index.html" target="_blank" style="color:#ffffff; text-decoration: none; margin: 0;" onfocus="this.blur()">
+                                <!--onfocus="this.blur()"是为了删除点击按钮后出现的虚线框-->
+                                <div class="button_server">
+                                    <div style="height: 5px;"></div>
+                                    <h1 style="margin-left:5%;">167号世界!!!</h1>
+                                    <p style="font-size: large; margin-left: 5%">相关介绍以及玩家社区！点击查看！</p>
+                                    <div style="height: 5px;"></div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -583,21 +507,18 @@
         <div id="a4" style="display: none;background-color: rgb(233, 233, 233);">
             <div id="内容">
                 <!--提示-->
-                <div style="background-color: rgb(233, 233, 233);height: 300px;">
-                    <div style="height: 100px;"></div>
+                <div class="tips">
                     <center>
-                        <img src="img/线上地图.png" style="width: 5%;">
-                        <p style="font-size: 30px;">服务器实时卫星地图</p>
+                        <img class="tips_img" src="img/线上地图.png">
+                        <p class="tips_text">服务器实时卫星地图</p>
                     </center>
                 </div>
                 <!--1.16.5-->
                 <div>
                     <!--167号世界-->
                     <div style="background-color:rgb(253,253,253)">
-                        <br>
-                        <h1 style="font-size: 40px; margin-left: 5%">· Minecraft JAVA 1.16.5</h1>
-                        <br>
-                        <div style="margin-left: 5%; width: 530px;">
+                        <h1 style="font-size: 40px; margin-left: 5%; margin-top: 0px; margin-bottom: 0px; padding-top: 45px; padding-bottom: 45px; ">· Minecraft JAVA 1.16.5</h1>
+                        <div style="margin-left: 5%; width: 530px; margin-bottom: 70px;">
                             <a href="map/The 167 World!!!/index.html" target="_blank" style="color:#ffffff; text-decoration: none; margin: 0px;" onfocus="this.blur()">
                                 <div class="button_map">
                                     <div style="height: 5px;"></div>
@@ -607,7 +528,6 @@
                                 </div>
                             </a>
                         </div>
-                        <div style="height: 70px;"></div>
                     </div>
                 </div>
             </div>
@@ -624,88 +544,76 @@
                     </center>
                 </div>
                 <center>
-                    <div style="width: 70%;text-align: left;">
+                    <div id="about">
                         <!--人员-->
-                        <div>
-                            <h1 style="font-size: 40px; margin-left: 5%">· 人员</h1>
+                        <div class="about">
+                            <h1 class="about_title">· 人员</h1>
                             <center>
                                 <div style="width: 80%;text-align: left;">
-                                    <p style="font-size: 30px;">服主</p>
+                                    <p class="about_staff_job">服主</p>
                                     <!--叶络行-->
-                                    <a href="https://space.bilibili.com/378595726" target="_blank" style="color: black;text-decoration: none;" onfocus="this.blur()">
-                                        <div style="width: 100%; text-align: center; padding: 10px; border-radius: 10px; background-image: url(img/ylx.jpg); background-repeat: no-repeat; background-size: 100%; box-shadow: 0px 0px 15px rgb(167,167,167); ">
-                                            <div style="height: 15px;"></div>
-                                            <img src="https://q4.qlogo.cn/g?b=qq&nk=3130346834&s=140" class="ye_2" style="border-radius: 50%;line-height: 0.1;border: 3px solid;border-color: white;">
-                                            <p style="font-size: 60px; line-height: 0.1; color: rgb(245,245,245) ;-webkit-text-stroke:1.5px black;font-weight:900 ">叶络行</p>
-                                            <p style="font-size: 28px; color: white; -webkit-text-stroke: 0.9px black; font-weight: 700">游戏名：yeluoxinggepi</p>
-                                            <p style="font-size: 28px; color: white; -webkit-text-stroke: 0.9px black; font-weight: 700">QQ号：3130346834</p>
-                                            <div style="height: 15px;"></div>
+                                    <a class="about_staff_link" href="https://space.bilibili.com/378595726" target="_blank" onfocus="this.blur()">
+                                        <div class="about_staff_card_s">
+                                            <img class="about_s_c_s_img" src="https://q4.qlogo.cn/g?b=qq&nk=3130346834&s=140">
+                                            <p class="about_s_c_s_title">叶络行</p>
+                                            <p class="about_s_c_s_intro">游戏名：yeluoxinggepi</p>
+                                            <p class="about_s_c_s_intro">QQ号：3130346834</p>
                                         </div>
                                     </a>
-                                    <!--管理员-->
-                                    <p style="font-size: 30px;">管理员</p>
+                                    <p class="about_staff_job">管理员</p>
                                     <!--北方雪天萌星-->
-                                    <a href="https://space.bilibili.com/55026363/" target="_blank" style="color: black;text-decoration: none;" onfocus="this.blur()">
-                                        <div style="width: 100%; text-align: center; background-color: white; padding: 10px; border-radius: 10px; box-shadow: 0px 0px 15px rgb(167,167,167);">
-                                            <div style="height: 10px;"></div>
-                                            <img src="https://q4.qlogo.cn/g?b=qq&nk=2015719721&s=140" style="border-radius: 50%; line-height: 1px;">
-                                            <p style="font-size: 40px; line-height: 1px;">北方雪天萌星</p>
-                                            <p style="font-size: 15px;">游戏名：Moehoshi</p>
-                                            <p style="font-size: 15px;">QQ号：2015719721</p>
-                                            <div style="height: 10px;"></div>
+                                    <a class="about_staff_link" href="https://space.bilibili.com/55026363/" target="_blank" onfocus="this.blur()">
+                                        <div class="about_staff_card_n" style="margin-bottom:40px">
+                                            <img class="about_s_c_n_img" src="https://q4.qlogo.cn/g?b=qq&nk=2015719721&s=140">
+                                            <p class="about_s_c_n_title">北方雪天萌星</p>
+                                            <p class="about_s_c_n_intro">游戏名：Moehoshi</p>
+                                            <p class="about_s_c_n_intro">QQ号：2015719721</p>
                                         </div>
                                     </a>
-                                    <br>
-                                    <br>
                                     <!--没病想病-->
-                                    <a href="https://space.bilibili.com/416028402/" target="_blank" style="color: black;text-decoration: none;" onfocus="this.blur()">
-                                        <div style="width: 100%; text-align: center; background-color: white; padding: 10px; border-radius: 10px; box-shadow: 0px 0px 15px rgb(167,167,167);">
-                                            <img src="https://q4.qlogo.cn/g?b=qq&nk=1619435547&s=140" style="border-radius: 50%; line-height: 1px;">
-                                            <div style="height: 10px;"></div>
-                                            <p style="font-size: 40px; line-height: 1px;">没病想病</p>
-                                            <p style="font-size: 15px;">游戏名：Fallen_sun</p>
-                                            <p style="font-size: 15px;">QQ号：1619435547</p>
-                                            <div style="height: 15px;"></div>
+                                    <a class="about_staff_link" href="https://space.bilibili.com/416028402/" target="_blank" onfocus="this.blur()">
+                                        <div class="about_staff_card_n">
+                                            <img class="about_s_c_n_img" src="https://q4.qlogo.cn/g?b=qq&nk=1619435547&s=140">
+                                            <p class="about_s_c_n_title">没病想病</p>
+                                            <p class="about_s_c_n_intro">游戏名：Fallen_sun</p>
+                                            <p class="about_s_c_n_intro">QQ号：1619435547</p>
                                         </div>
                                     </a>
                                 </div>
                             </center>
                         </div>
-                        <div style="height: 50px;"></div>
                         <!--群聊-->
-                        <div>
-                            <h1 style="font-size: 40px; margin-left: 5%">· 群聊</h1>
+                        <div class="about">
+                            <h1 class="about_title">· 群聊</h1>
                             <center>
                                 <div style="width: 80%;text-align: left;">
                                     <!--167小宇宙-->
-                                    <a href="https://qm.qq.com/cgi-bin/qm/qr?k=XGN3c0D8E57lV-QViRfoxtsiYsofzqrF&jump_from=webapi" target="_blank" style="color: black;text-decoration: none;" onfocus="this.blur()">
-                                        <div style="width: 100%; background-color: white; padding: 10px; border-radius: 10px; box-shadow: 0px 0px 15px rgb(167,167,167);">
-                                            <div style="padding:16px;">
-                                                <div style="width: 140px; height: 140px; margin: 16px;float:left;margin-right:32px">
+                                    <a class="about_group_link" href="https://qm.qq.com/cgi-bin/qm/qr?k=XGN3c0D8E57lV-QViRfoxtsiYsofzqrF&jump_from=webapi" target="_blank" onfocus="this.blur()">
+                                        <div class="about_group_card" style="margin-bottom:40px;">
+                                            <div class="about_g_c_adiv">
+                                                <div class="about_g_c_a_imgdiv">
                                                     <div></div> <!--一个工具div，它的出现是为了让这个img被包含在上面那个div里，或许还有更好的办法？-->
-                                                    <img src="https://p.qlogo.cn/gh/494930147/494930147/140" style="border-radius: 50%;">
+                                                    <img src="https://p.qlogo.cn/gh/494930147/494930147/140">
                                                 </div>
-                                                <div style="margin: 16px; padding-top: 33px; padding-bottom: 33px">
-                                                    <!--建议不在这一类div中加入height等属性-->
-                                                    <p style="font-size: 40px;margin:0">167小宇宙</p>
-                                                    <p style="margin:0">QQ群：494930147</p>
+                                                <div class="about_g_c_a_textdiv">
+                                                    <!--建议不要在这一类div中加入height等属性-->
+                                                    <p class="about_g_c_a_text1">167小宇宙</p>
+                                                    <p class="about_g_c_a_text2">QQ群：494930147</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
-                                    <br>
-                                    <br>
                                     <!--167号绿洲【联机群】-->
-                                    <a href="https://qm.qq.com/cgi-bin/qm/qr?k=ik4cdJJ-lnhmbXq5kb2_tVQFzx-0jkHe&jump_from=webapi" target="_blank" style="color: black;text-decoration: none;" onfocus="this.blur()">
-                                        <div style="width: 100%; background-color: white; padding: 10px; border-radius: 10px; box-shadow: 0px 0px 15px rgb(167,167,167);">
-                                            <div style="padding:16px;">
-                                                <div style="width: 140px; height: 140px; margin: 16px;float:left;margin-right:32px">
+                                    <a class="about_group_link" href="https://qm.qq.com/cgi-bin/qm/qr?k=ik4cdJJ-lnhmbXq5kb2_tVQFzx-0jkHe&jump_from=webapi" target="_blank" onfocus="this.blur()">
+                                        <div class="about_group_card">
+                                            <div class="about_g_c_adiv">
+                                                <div class="about_g_c_a_imgdiv">
                                                     <div></div>
-                                                    <img src="https://p.qlogo.cn/gh/1026474759/1026474759/140" style="border-radius: 50%;">
+                                                    <img src="https://p.qlogo.cn/gh/1026474759/1026474759/140">
                                                 </div>
-                                                <div style="margin: 16px; padding-top: 33px; padding-bottom: 33px">
-                                                    <p style="font-size: 40px;margin:0">167号绿洲【联机群】</p>
-                                                    <p style="margin:0">QQ群：1026474759</p>
+                                                <div class="about_g_c_a_textdiv">
+                                                    <p class="about_g_c_a_text1">167号绿洲【联机群】</p>
+                                                    <p class="about_g_c_a_text2">QQ群：1026474759</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -713,10 +621,9 @@
                                 </div>
                             </center>
                         </div>
-                        <div style="height: 100px;"></div>
                         <!--赞助-->
-                        <div>
-                            <h1 style="font-size: 40px; margin-left: 5%">· 赞助</h1>
+                        <div class="about">
+                            <h1 class="about_title">· 赞助</h1>
                             <center>
                                 <img src="img/赞助.png">
                                 <p style="font-size: 20px;">
@@ -727,7 +634,6 @@
                                 </p>
                             </center>
                         </div>
-                        <div style="height: 90px;"></div>
                     </div>
                 </center>
             </div>
@@ -735,43 +641,44 @@
 
         <!--尾页-->
         <div>
-            <div style="background-image: url(img/尾页.png);background-size: 100% auto;color: white;width: 100%;height: 800px;">
+            <div id="end_p1">
                 <!--导航栏-->
-                <div style="width: 15%; margin-left: 15%;float: left;position: relative;top: 35%;">
-                    <a href="https://the-167-world.tk/" style="text-decoration: none;">
-                        <p style="color: rgb(200, 200, 200); font-size: 20px;">167号世界</p>
-                        <p style="color: rgb(200, 200, 200); font-size: 20px;">The 167 World</p>
+                <div id="end_navigation">
+                    <a class="end_n_link" href="https://the-167-world.tk/">
+                        <p class="end_n_text">167号世界</p>
+                        <p class="end_n_text">The 167 World</p>
                     </a>
                     <hr>
-                    <a href="mailto:XJLanghai@qq.com" style="text-decoration: none;">
-                        <p style="color: rgb(200, 200, 200);font-size: 20px;">网页BUG反馈邮箱：XJ_Langhai@qq.com</p>
+                    <a class="end_n_link" href="mailto:XJLanghai@qq.com">
+                        <p class="end_n_text">网页BUG反馈邮箱：XJ_Langhai@qq.com</p>
                     </a>
                 </div>
                 <!--二维码·167号绿洲【联机群】-->
-                <div style="width: 11%;margin-left: 28%;float: left;position: relative;top: 35%;">
-                    <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=ik4cdJJ-lnhmbXq5kb2_tVQFzx-0jkHe&jump_from=webapi" style="color: rgb(200, 200, 200);text-decoration: none;">
-                        <img src="https://qun.qq.com/qrcode/index?data=https%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Fk%3D5devYcbamvnyT6GAjRBgk1rF1IRsHG_I%26jump_from%3Dwebapi%26qr%3D1" style="width: 100%" alt="167号绿洲【联机群】" title="167号绿洲【联机群】">
-                        <p style="text-align: center;">167号绿洲【联机群】</p>
+                <div id="end_qrcode1">
+                    <a class="end_qrcode_link" target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=ik4cdJJ-lnhmbXq5kb2_tVQFzx-0jkHe&jump_from=webapi">
+                        <img src="https://qun.qq.com/qrcode/index?data=https%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Fk%3D5devYcbamvnyT6GAjRBgk1rF1IRsHG_I%26jump_from%3Dwebapi%26qr%3D1" alt="167号绿洲【联机群】" title="167号绿洲【联机群】">
                     </a>
-                    <p style="color: rgb(240, 240, 240);font-weight: lighter;text-align: center;">QQ群：1026474759</p>
+                    <p class="end_qrcode_title">167号绿洲【联机群】</p>
+                    <p class="end_qrcode_number">QQ群：1026474759</p>
+                    <p class="end_qrcode_supplement"><i>叶络行联机群</i></p>
                 </div>
                 <!--二维码·167小宇宙-->
-                <div style="width: 11%;margin-left: 9%;float: left;position: relative;top: 35%;">
-                    <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=XGN3c0D8E57lV-QViRfoxtsiYsofzqrF&jump_from=webapi" style="color: rgb(200, 200, 200);text-decoration: none;">
-                        <img src="https://qun.qq.com/qrcode/index?data=https%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Fk%3DfEcUJJpwsSaa9uP05O-i1ohtOQBqT0en%26jump_from%3Dwebapi%26qr%3D1" style="width: 100%" alt="167小宇宙" title="167小宇宙">
-                        <p style="color: rgb(240, 240, 240);font-weight: lighter;text-align: center;">167小宇宙</p>
-                        <p style="color: rgb(240, 240, 240);font-weight: lighter;text-align: center;">QQ群：494930147</p>
+                <div id="end_qrcode2">
+                    <a class="end_qrcode_link" target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=XGN3c0D8E57lV-QViRfoxtsiYsofzqrF&jump_from=webapi">
+                        <img src="https://qun.qq.com/qrcode/index?data=https%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Fk%3DfEcUJJpwsSaa9uP05O-i1ohtOQBqT0en%26jump_from%3Dwebapi%26qr%3D1"alt="167小宇宙" title="167小宇宙">
                     </a>
-                    <p style="font-weight: lighter;"><i>叶络行粉丝群</i></p>
+                    <p class="end_qrcode_title">167小宇宙</p>
+                    <p class="end_qrcode_number">QQ群：494930147</p>
+                    <p class="end_qrcode_supplement"><i>叶络行粉丝群</i></p>
                 </div>
             </div>
-            <div style="background-color: rgb(31, 31, 31);">
-                <br>
-                <p style="color: rgb(245, 245, 245);text-align: center;">Contributed by <a href="https://github.com/XJLanghai" style="color: rgb(0, 123, 255);text-decoration: none;" target="_blank"><b>XJLanghai</b></a>, <a href="https://github.com/Tinhone" style="color: rgb(0, 123, 255);text-decoration: none;" target="_blank"><b>Tinhone</b></a>.</p>
-                <p style="text-align: center;color: white;">Copyright &copy; 2021 <a href="https://langhai.tk/" style="color: rgb(0, 123, 255);text-decoration: none;" target="_blank"><b>螂海</b></a>. All rights reserved.</p>
-                <br>
-                <div style="height: 100px;display: flex;justify-content: center;align-items: center;">
-                    <p style="color: white;">您刚刚获得成就 <span style="color: purple;font-weight: bold;">[结束了？]</span></p>
+            <div id="end_p2">
+                <div id="end_relevant">
+                    <p id="end_relevant_contributed">Contributed by <a class="end_r_con_link" href="https://github.com/XJLanghai" target="_blank"><b>XJLanghai</b></a>, <a class="end_r_con_link" href="https://github.com/Tinhone" target="_blank"><b>Tinhone</b></a>.</p>
+                    <p id="end_relevant_copyright">Copyright &copy; 2021 <a class="end_r_cop_link" href="https://langhai.tk/" target="_blank"><b>螂海</b></a>. All rights reserved.</p>
+                </div>
+                <div id="end_advancements">
+                    <p id="end_advancements_text">您刚刚获得成就 <span id="end_advancements_theend">[结束了？]</span></p>
                 </div>
             </div>
         </div>
