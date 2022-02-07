@@ -201,39 +201,41 @@ body {
 
 
 #导航 {
-    opacity: 0.6;
+    opacity: 1;
     position: fixed;
-    z-index: 999;
+    z-index: 99999;
     top: 0;
     width: 100%;
-    height: 65px;
-    background-color: rgb(41, 41, 41);
+    height: 50px;
+    background-color: rgb(240,240,240);
     transform: translateZ(0); /*解决谷歌浏览器导航栏抖动问题*/
     cursor: default;
+    box-shadow: 0px 0px 10px rgb(167,167,167);
 }
 
     #导航 ul {
-        margin: 11px;
+        text-align: center;
+        padding: 0px;
+        margin: 7px;
+        color: rgb(66,66,66);
     }
 
         #导航 ul li {
             display: inline-block;
             width: auto;
             padding: 0px 1%;
-            font-size: 19px;
+            font-size: 16px;
             font-weight: normal;
             letter-spacing: 1px;
-            margin: 5px;
+            margin: 6px;
         }
 
             #导航 ul li:hover {
                 cursor: pointer;
-                color: #b3b3b3;
             }
 
             #导航 ul li a {
                 text-decoration: none;
-                color: rgb(161,161,161);
             }
 
     #导航 p {
@@ -246,30 +248,32 @@ body {
     }
 
 #标题 {
-    width: 210px;
-    padding: 12px;
+    width: 190px;
+    padding: 5px;
     float: left;
-    position: absolute
+    position: absolute;
+    margin-left: 7px;
 }
 
     #标题 img {
-        height: 45px;
-        width: 45px;
+        height: 35px;
+        width: 35px;
         border-radius: 50%;
-        margin-top: -3px;
+        margin-top: 3px;
     }
 
 #副标题 {
     font-family: 站酷高端黑;
-    font-size: 9px;
-    margin-top: -3px margin-left: 1px;
+    font-size: 8px;
+    margin-top: -3px;
+    margin-left: 1px;
 }
 
 #主标题 {
     font-family: SHSTC;
-    font-size: 22px;
-    color: white;
-    margin-top: -3.8px;
+    font-size: 20px;
+    color: rgb(97,97,97);
+    margin-top: 0px;
     margin-right: 49px;
     float: right;
     text-align: left;
@@ -970,4 +974,97 @@ div.download_tab button.active {
 #end_advancements_theend {
     color: purple;
     font-weight: bold;
+}
+
+
+
+
+
+#server_t167w_community_轨道交通新城区_article { 
+    width: 71%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 20px rgba(167,167,167,0.2);
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: left;
+    background-color: rgb(250,250,250);
+}
+
+#server_t167w_community_轨道交通新城区_article_p1 {
+    margin: 15%;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+#se_167_c_g_a_p1_title { /*server_t167w_community_轨道交通新城区_article_p1_title*/
+    font-size: 35px;
+    margin: 0px;
+    margin-bottom: 30px;
+}
+
+#se_167_c_g_a_p1_time {
+    color: rgb(117,117,117);
+    font-size: 14px;
+}
+
+.se_167_c_g_a_p1_writer {
+    margin-right: 10px;
+    display: inline;
+    width: 40px;
+    border-radius: 25%;
+}
+
+.se_167_c_g_a_p1_writer_info {
+    display: none;
+    position: absolute;
+    padding-top: 6px;
+    margin-left: 7px;
+    color: rgb(117,117,117);
+}
+
+.se_167_c_g_a_p1_w_info_1 { /*server_t167w_community_轨道交通新城区_article_p1_writer_information_1*/
+    font-size: 13px;
+    font-weight: 700;
+    display: inline;
+    margin: 0;
+}
+
+.se_167_c_g_a_p1_w_info_2 {
+    font-size: 13px;
+    display: inline;
+    margin: 0;
+}
+
+.se_167_c_g_a_p3_button1 { /*server_t167w_community_轨道交通新城区_article_p3_button1*/
+    text-align: left;
+    background-color: rgb(227,227,227);
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 45%;
+    float: left;
+    margin-right: 3%;
+    margin-bottom:40px;
+    transition: 0.25s;
+    transform: translateZ(0); /*改善动画期间模糊、抖动问题*/
+}
+
+    .se_167_c_g_a_p3_button1:hover {
+        box-shadow: 0px 0px 20px rgb(227,227,227);
+        transform: translateZ(0);
+        transform: scale(0.95);
+        transition: 0.25s;
+    }
+
+.se_167_c_g_a_p3_button1_text1 {
+    font-size: 17px;
+    color: rgb(33,33,33);
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    word-break: break-all;
 }
