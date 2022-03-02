@@ -255,8 +255,8 @@
                 }
                 update_progressbar();
 
-                //加载完成或加载超过十秒后继续执行...
-                if (num >= 100 || loadtime == 20) {
+                //加载完成或加载超过60秒后继续执行...
+                if (num >= 100 || loadtime == 120) {
                     num = 100;
                     update_progress();
                     update_progressbar();
