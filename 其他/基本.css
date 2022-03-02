@@ -307,7 +307,7 @@ body {
 
 
 #主图_background {
-    background-image: url(../img/封面.png);
+    background-image: url(../img/封面.webp);
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
@@ -840,7 +840,7 @@ div.download_tab button.active {
 
 
 #end_p1 {
-    background-image: url(../img/尾页.png);
+    background-image: url(../img/尾页.webp);
     background-size: 100% auto;
     color: white;
     width: 100%;
