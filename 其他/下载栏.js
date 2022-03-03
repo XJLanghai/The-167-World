@@ -1,8 +1,8 @@
 function openOption(evt, optionName) {
-    var i, tabcontent_download, tablinks_download;
-    tabcontent_download = document.getElementsByClassName("tabcontent_download");
-    for (i = 0; i < tabcontent_download.length; i++) {
-        tabcontent_download[i].style.display = "none";
+    var i, tab_down, tablinks_download;
+    tab_down = document.getElementsByClassName("tab_down");
+    for (i = 0; i < tab_down.length; i++) {
+        tab_down[i].style.display = "none";
     }
     tablinks_download = document.getElementsByClassName("tablinks_download");
     for (i = 0; i < tablinks_download.length; i++) {

@@ -17,14 +17,16 @@ function MyThree() {
         height = element.clientHeight;
         //生成渲染器对象（属性：抗锯齿效果为设置有效）
         this.renderer = new THREE.WebGLRenderer({
-            antialias: true
+            antialias: true,
+            //alpha: true,
         });
         this.renderer.shadowMap.enabled = true;
+        //this.renderer.setClearAlpha(0);
         //指定渲染器的高宽（和画布框大小一致）
         this.renderer.setSize(width, height);
         element.appendChild(this.renderer.domElement);
         //设置场景颜色 和透明度
-        this.renderer.setClearColor(0x808080, 0.35);
+        this.renderer.setClearColor(0x424242, 1);
     }
  
     //初始化相机
@@ -48,6 +50,7 @@ function MyThree() {
     //初始化场景
     this.initScene = function () {
         this.scene = new THREE.Scene();
+        //this.scene.background = null;
     }
  
     //初始化灯光
