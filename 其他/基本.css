@@ -960,9 +960,46 @@ div.download_tab button.active {
 
 
 
+.se_167_c_ct_div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.se_167_c_ct_jumpButton { /*server_t167w_community_content_jumpButton*/
+    color: black;
+    text-decoration: none;
+}
+
+.se_167_c_c_juB_div { /*server_t167w_community_content_jumpButton_div*/
+    background-color: rgba(245, 245, 245, 0.7);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.se_167_c_c_juB_d_title { /*server_t167w_community_content_jumpButton_div_title*/
+    text-align: left;
+    font-weight: 600;
+    color: rgb(33, 33, 33)
+}
+
+.se_167_c_c_juB_d_text {
+    text-align: left;
+    color: rgb(117, 117, 117)
+}
+
+.se_167_c_c_juB_d_avatar {
+    text-align: right;
+}
+
+    .se_167_c_c_juB_d_avatar img {
+        width: 32px;
+        border-radius: 15%;
+    }
 
 
-#server_t167w_community_轨道交通新城区_article { 
+
+#server_t167w_community_轨道交通新城区_article {
     width: 71%;
     margin: 0 auto;
     box-shadow: 0px 0px 20px rgba(167,167,167,0.2);
