@@ -7,6 +7,10 @@
     <title>167号世界 - The 167 World</title>
     <meta name="keywords" content="167,叶络行,Minecraft,我的世界,167号世界,167号世界！！！,the 167 world,the 167 world!!!">
     <meta name="description" content="叶络行的Minecraft联机世界">
+    <link rel="preload" href="其他/SourceHanSerifTC-Bold-base.otf" as="font" type="font/otf" crossorigin />
+    <link rel="preload" href="其他/SourceHanSerifTC-Bold-更多.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="其他/SourceHanSerifTC-Bold-地.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="其他/站酷高端黑.ttf" as="font" type="font/ttf" crossorigin />
     <link href="其他/基本.css" rel="stylesheet">
     <script src="其他/jquery-1.8.3.min.js"></script>
     <script src="其他/动画.js"></script>
@@ -133,7 +137,7 @@
 
                 script.onload = script.onreadystatechange = function () {
                     if (!this.readyState || this.readyState == 'loaded' || this.readyState == 'completed') {
-                        if (naun_1[id] == 0) {
+						if (naun_1[id] == 0) { //如果已准备好，且准备好后还是被标记为[没有增加num的值]，则num增加，同时标记为[已经增加num的值]
                             num = number + num;
                             naun_1[id] = 1;
                         }
@@ -166,10 +170,10 @@
                         clearInterval(ttt)
                         document.getElementById('load_all').style.display = 'none';
                     }
-                }, 10);
+                }, 15);
             }
 
-            //开始隐藏加载页面的进度条
+            //开始隐藏加载页面的进度提示文字
             function t1() {
                 var num2 = 100;
                 var tt = setInterval(function () {
@@ -182,7 +186,7 @@
                         //完成后继续执行...
                         setTimeout("t2()", 100);
                     }
-                }, 5);
+                }, 10);
             }
 
             //定义
@@ -227,6 +231,7 @@
                     }
                 }
 
+                //最后一个js的增加进度数是12，需要单独列出验证加载
                 if (naun_1[metadata_1.length - 1] == 0) {
                     dynamic_load(metadata_1[metadata_1.length - 1], 12, metadata_1.length - 1);
                 }
@@ -237,11 +242,11 @@
                     if (num < 10) {
                         nummax = "00" + num;
                     }
-                    if (num < 99 && num > 9) {
+                    if (num <= 99 && num > 9) {
                         nummax = "0" + num;
                     }
-                    if (num == 100) {
-                        nummax = num;
+                    if (num >= 100) {
+                        nummax = 100;
                     }
                     进度.innerText = nummax;
                 }
@@ -255,14 +260,14 @@
                 }
                 update_progressbar();
 
-                //加载完成或加载超过60秒后继续执行...
+                //加载完成或加载超过60秒后继续执行...（loadtime==120是因为每次循环隔500毫秒）
                 if (num >= 100 || loadtime == 120) {
                     num = 100;
                     update_progress();
                     update_progressbar();
                     clearInterval(t);
                     document.getElementById('progress_p2').style.display = '';
-                    setTimeout("t1()", 1500);
+                    setTimeout("t1()", 1300);
                 }
 
                 loadtime++;
@@ -517,7 +522,7 @@
                     <div style="background-color:rgb(253,253,253)">
                         <h1 style="font-size: 40px; margin-left: 5%; margin-top: 0px; margin-bottom: 0px; padding-top: 45px; padding-bottom: 45px; ">· Minecraft JAVA 1.16.5</h1>
                         <div style="margin-left: 5%; width: 530px; margin-bottom: 70px;">
-                            <a href="http://119.29.38.72:8123/" target="_blank" style="color:#ffffff; text-decoration: none; margin: 0px;" onfocus="this.blur()">
+                            <a href="http://101.35.232.20:8123/" target="_blank" style="color:#ffffff; text-decoration: none; margin: 0px;" onfocus="this.blur()">
                                 <div class="button_map">
                                     <div style="height: 5px;"></div>
                                     <h1 style="margin-left:5%;">167号世界!!!</h1>

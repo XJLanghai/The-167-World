@@ -7,18 +7,28 @@ html, body {
 
 
 
+/*@font-face {
+    font-family: SHSTC;
+    font-display: swap;
+    unicode-range: U+4e16,U+31,U+36,U+37,U+53f7,U+4e16,U+754c;
+    src: url(../其他/SourceHanSerifTC-Bold.otf);
+}*/
+
 @font-face {
     font-family: SHSTC;
+    font-display:swap;
     src: url(../其他/SourceHanSerifTC-Bold-base.otf);
 }
 
 @font-face {
     font-family: SHSTC;
+    font-display: swap;
     src: url(../其他/SourceHanSerifTC-Bold-更多.ttf);
 }
 
 @font-face {
     font-family: SHSTC;
+    font-display: swap;
     src: url(../其他/SourceHanSerifTC-Bold-地.ttf);
 }
 
@@ -960,10 +970,31 @@ div.download_tab button.active {
 
 
 
+
+
+.se_167_c_ct_title {
+    font-size: 35px;
+    font-weight: 700;
+    margin: 0;
+    color: rgb(33,33,33);
+    margin-top: 10px;
+}
+
+
+
 .se_167_c_ct_div {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.se_167_c_ct_div_title {
+    font-size: 35px;
+    font-weight: 700;
+    margin: 0;
+    color: rgb(33,33,33);
+}
+
+
 
 .se_167_c_ct_jumpButton { /*server_t167w_community_content_jumpButton*/
     color: black;
@@ -973,19 +1004,24 @@ div.download_tab button.active {
 .se_167_c_c_juB_div { /*server_t167w_community_content_jumpButton_div*/
     background-color: rgba(245, 245, 245, 0.7);
     padding: 20px;
+    padding-top: 30px;
     border-radius: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    box-shadow: 0px 0px 15px rgba(167,167,167,0.2)
 }
 
 .se_167_c_c_juB_d_title { /*server_t167w_community_content_jumpButton_div_title*/
     text-align: left;
     font-weight: 600;
-    color: rgb(33, 33, 33)
+    color: rgb(33, 33, 33);
+    margin-top:0;
 }
 
 .se_167_c_c_juB_d_text {
     text-align: left;
-    color: rgb(117, 117, 117)
+    color: rgb(117, 117, 117);
+    margin-bottom: 10px;
 }
 
 .se_167_c_c_juB_d_avatar {
