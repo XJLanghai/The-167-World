@@ -133,7 +133,7 @@
                 var script = document.createElement('script');
                 script.setAttribute('type', 'text/javascript');
                 script.setAttribute('src', whatJs);
-                _doc.appendChild(script);
+                //_doc.appendChild(script); //加载js
 
                 script.onload = script.onreadystatechange = function () {
                     if (!this.readyState || this.readyState == 'loaded' || this.readyState == 'completed') {
