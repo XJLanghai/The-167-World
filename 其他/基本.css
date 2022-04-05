@@ -7,14 +7,14 @@ html, body {
 
 
 
-@font-face {
+/*@font-face {
     font-family: SHSTC;
     font-display: swap;
     unicode-range: U+4e16,U+31,U+36,U+37,U+53f7,U+4e16,U+754c;
     src: url(../其他/SourceHanSerifTC-Bold.otf);
-}
+}*/
 
-/*@font-face {
+@font-face {
     font-family: SHSTC;
     font-display:swap;
     src: url(../其他/SourceHanSerifTC-Bold-base.otf);
@@ -35,7 +35,7 @@ html, body {
 @font-face {
     font-family: 站酷高端黑;
     src: url(../其他/站酷高端黑.ttf);
-}*/
+}
 
 
 
