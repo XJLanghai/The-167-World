@@ -137,7 +137,7 @@
 
                 script.onload = script.onreadystatechange = function () {
                     if (!this.readyState || this.readyState == 'loaded' || this.readyState == 'completed') {
-                        if (naun_1[id] == 0) {
+						if (naun_1[id] == 0) { //如果已准备好，且准备好后还是被标记为[没有增加num的值]，则num增加，同时标记为[已经增加num的值]
                             num = number + num;
                             naun_1[id] = 1;
                         }
@@ -170,10 +170,10 @@
                         clearInterval(ttt)
                         document.getElementById('load_all').style.display = 'none';
                     }
-                }, 10);
+                }, 15);
             }
 
-            //开始隐藏加载页面的进度条
+            //开始隐藏加载页面的进度提示文字
             function t1() {
                 var num2 = 100;
                 var tt = setInterval(function () {
@@ -186,7 +186,7 @@
                         //完成后继续执行...
                         setTimeout("t2()", 100);
                     }
-                }, 5);
+                }, 10);
             }
 
             //定义
@@ -231,6 +231,7 @@
                     }
                 }
 
+                //最后一个js的增加进度数是12，需要单独列出验证加载
                 if (naun_1[metadata_1.length - 1] == 0) {
                     dynamic_load(metadata_1[metadata_1.length - 1], 12, metadata_1.length - 1);
                 }
@@ -241,11 +242,11 @@
                     if (num < 10) {
                         nummax = "00" + num;
                     }
-                    if (num < 99 && num > 9) {
+                    if (num <= 99 && num > 9) {
                         nummax = "0" + num;
                     }
-                    if (num == 100) {
-                        nummax = num;
+                    if (num >= 100) {
+                        nummax = 100;
                     }
                     进度.innerText = nummax;
                 }
@@ -259,14 +260,14 @@
                 }
                 update_progressbar();
 
-                //加载完成或加载超过60秒后继续执行...
+                //加载完成或加载超过60秒后继续执行...（loadtime==120是因为每次循环隔500毫秒）
                 if (num >= 100 || loadtime == 120) {
                     num = 100;
                     update_progress();
                     update_progressbar();
                     clearInterval(t);
                     document.getElementById('progress_p2').style.display = '';
-                    setTimeout("t1()", 1500);
+                    setTimeout("t1()", 1300);
                 }
 
                 loadtime++;
