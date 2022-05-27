@@ -782,7 +782,7 @@ div.download_tab button.active {
     padding-bottom: 20px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px rgb(167,167,167);
+    box-shadow: 0px 0px 10px rgb(167,167,167);
 }
 
 .about_s_c_n_img { /*about_staff_card_normal_img*/
@@ -811,7 +811,7 @@ div.download_tab button.active {
     background-color: white;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px rgb(167,167,167);
+    box-shadow: 0px 0px 10px rgb(167,167,167);
 }
 
 .about_g_c_adiv { /*about_group_card_adiv*/
